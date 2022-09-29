@@ -1,0 +1,38 @@
+{
+  "respuesta": {
+    "info": [
+      {
+        "estado": "ACTIVE",
+        "ultimosCuatro": "1234",
+        "cuenta": "370100000113",
+        "grupoAfinidad": {
+          "codigo": "1",
+          "nombre": "Grupo 1"
+        },
+        "producto": {
+          "codigo": "string",
+          "nombre": "string"
+        }
+      }
+    ]
+  },
+  "resultado": true,
+  "mensajes": [
+    {
+      "mensaje": "string",
+      "codigo": 0,
+      "tipo": "INFO",
+      "mensajes": [
+        "string"
+      ]
+    }
+  ],
+  "mensaje": {
+    "mensaje": "string",
+    "codigo": 0,
+    "tipo": "INFO",
+    "mensajes": [
+      "string"
+    ]
+  }
+}

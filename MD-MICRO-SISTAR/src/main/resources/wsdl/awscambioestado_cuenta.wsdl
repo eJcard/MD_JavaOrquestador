@@ -1,0 +1,73 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!--suppress ALL -->
+<definitions name="WSCambioEstado_Cuenta" targetNamespace="AppAuxWs" xmlns:wsdlns="AppAuxWs" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="AppAuxWs">
+    <types>
+        <schema targetNamespace="AppAuxWs" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" elementFormDefault="qualified">
+            <complexType name="inCambioEstado_Cuenta">
+                <sequence>
+                    <element name="Usuariows" type="xsd:string">
+                    </element>
+                    <element name="Passws" type="xsd:string">
+                    </element>
+                    <element name="Cuenta" type="xsd:long">
+                    </element>
+                    <element name="EstadoActual" type="xsd:string">
+                    </element>
+                    <element name="NuevoEstado" type="xsd:string">
+                    </element>
+                </sequence>
+            </complexType>
+            <complexType name="outCambioEstado">
+                <sequence>
+                    <element name="Coderror" type="xsd:string">
+                    </element>
+                    <element name="Reason" type="xsd:string">
+                    </element>
+                </sequence>
+            </complexType>
+            <element name="WSCambioEstado_Cuenta.Execute">
+                <complexType>
+                    <sequence>
+                        <element minOccurs="1" maxOccurs="1" name="Incambioestado" type="tns:inCambioEstado_Cuenta" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="WSCambioEstado_Cuenta.ExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element minOccurs="1" maxOccurs="1" name="Outcambioestado" type="tns:outCambioEstado" />
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+    </types>
+    <message name="WSCambioEstado_Cuenta.ExecuteSoapIn">
+        <part name="parameters" element="tns:WSCambioEstado_Cuenta.Execute" />
+    </message>
+    <message name="WSCambioEstado_Cuenta.ExecuteSoapOut">
+        <part name="parameters" element="tns:WSCambioEstado_Cuenta.ExecuteResponse" />
+    </message>
+    <portType name="WSCambioEstado_CuentaSoapPort">
+        <operation name="Execute">
+            <input message="wsdlns:WSCambioEstado_Cuenta.ExecuteSoapIn" />
+            <output message="wsdlns:WSCambioEstado_Cuenta.ExecuteSoapOut" />
+        </operation>
+    </portType>
+    <binding name="WSCambioEstado_CuentaSoapBinding" type="wsdlns:WSCambioEstado_CuentaSoapPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <operation name="Execute">
+            <soap:operation soapAction="AppAuxWsaction/AWSCAMBIOESTADO_CUENTA.Execute" />
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+        </operation>
+    </binding>
+    <service name="WSCambioEstado_Cuenta">
+        <port name="WSCambioEstado_CuentaSoapPort" binding="wsdlns:WSCambioEstado_CuentaSoapBinding">
+            <soap:address location="https://test-portalbancos.sistarbanc.com.uy/WSInternos/awscambioestado_cuenta.aspx" />
+        </port>
+    </service>
+</definitions>

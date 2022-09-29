@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="amdSoapSolicitudProductoNominadoV2" targetNamespace="ApiMidinero" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="ApiMidinero" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdlns="ApiMidinero" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="ApiMidinero" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">
+            <complexType name="SdtDatosPersonaV2">
+                <sequence>
+                  <element name="PaisDocumento" type="xsd:int"/>
+                  <element name="TipoDocumento" type="xsd:int"/>
+                  <element name="NumeroDocumento" type="xsd:string"/>
+                  <element name="PrimerNombre" type="xsd:string"/>
+                  <element name="SegundoNombre" type="xsd:string"/>
+                  <element name="PrimerApellido" type="xsd:string"/>
+                  <element name="SegundoApellido" type="xsd:string"/>
+                  <element name="FechaNacimiento" nillable="true" type="xsd:date"/>
+                  <element name="Sexo" type="xsd:string"/>
+                  <element name="EstadoCivil" type="xsd:string"/>
+                  <element name="PaisNacimiento" type="xsd:int"/>
+                  <element name="Email" type="xsd:string"/>
+                  <element name="Actividad" type="xsd:string"/>
+                  <element name="Calle" type="xsd:string"/>
+                  <element name="Puerta" type="xsd:string"/>
+                  <element name="Apartamento" type="xsd:string"/>
+                  <element name="Departamento" type="xsd:int"/>
+                  <element name="Localidad" type="xsd:int"/>
+                  <element name="Barrio" type="xsd:int"/>
+                  <element name="DireccionDetalle" type="xsd:string"/>
+                  <element name="DireccionPiso" type="xsd:string"/>
+                  <element name="DireccionResidente" type="xsd:boolean"/>
+                  <element name="DireccionCodigoPostal" type="xsd:string"/>
+                  <element name="DireccionPais" type="xsd:string"/>
+                  <element name="DireccionTelefono" type="xsd:string"/>
+                  <element name="DireccionTelefAlternativo" type="xsd:string"/>
+                </sequence>
+              </complexType>    
+            
+            <complexType name="DatospersonaType">
+                <complexContent>
+                    <extension base="tns:SdtDatosPersonaV2">
+                        <sequence>
+                            <element name="OperaPorCuentaTerceros" type="xsd:boolean" />                            
+                        </sequence>
+                     </extension>                                              
+               </complexContent>
+            </complexType>
+                    
+            <complexType name="SdtDatosRepresentante">
+               <complexContent>
+                    <extension base="tns:SdtDatosPersonaV2">
+                        <sequence>
+                            <element name="TipoRelacion" type="xsd:string" />                           
+                        </sequence>
+                     </extension>                                              
+               </complexContent>
+            </complexType>
+            
+            <complexType name="SDTResultadoEstado">
+                <sequence>
+                    <element name="ResultadoEstado" type="xsd:short">
+                    </element>
+                    <element name="ResultadoCobranzaId" type="xsd:long">
+                    </element>
+                    <element name="ResultadoTimeStamp" nillable="true" type="xsd:dateTime">
+                    </element>
+                    <element name="ResultadoMensaje" type="xsd:string">
+                    </element>
+                    <element name="ResultadoErrorCodigo" type="xsd:string">
+                    </element>
+                    <element name="ResultadoErroCodigoSecuencia" type="xsd:short">
+                    </element>
+                    <element name="ResultadoNivel" type="xsd:short">
+                    </element>
+                    <element name="ResultadoMensajeProgramador" type="xsd:string">
+                    </element>
+                    <element name="ResultadoProgramaOrigen" type="xsd:string">
+                    </element>
+                </sequence>
+            </complexType>
+            <element name="amdSoapSolicitudProductoNominadoV2.Execute">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="1" minOccurs="1" name="Datospersona" type="tns:SdtDatosPersonaV2"/>
+                        <element maxOccurs="1" minOccurs="1" name="Datosrepresentante" type="tns:SdtDatosRepresentante"/>
+                        <element maxOccurs="1" minOccurs="1" name="Subagenciaretiro" type="xsd:short"/>
+                        <element maxOccurs="1" minOccurs="1" name="Producto" type="xsd:string"/>
+                        <element maxOccurs="1" minOccurs="1" name="Red" type="xsd:string"/>
+                        <element maxOccurs="1" minOccurs="1" name="Grupoafinidad" type="xsd:string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="amdSoapSolicitudProductoNominadoV2.ExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="1" minOccurs="1" name="Response" type="tns:SDTResultadoEstado"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+  </types>
+  <message name="amdSoapSolicitudProductoNominadoV2.ExecuteSoapOut">
+    <part name="parameters" element="tns:amdSoapSolicitudProductoNominadoV2.ExecuteResponse">
+    </part>
+  </message>
+  <message name="amdSoapSolicitudProductoNominadoV2.ExecuteSoapIn">
+    <part name="parameters" element="tns:amdSoapSolicitudProductoNominadoV2.Execute">
+    </part>
+  </message>
+  <portType name="amdSoapSolicitudProductoNominadoV2SoapPort">
+    <operation name="Execute">
+      <input message="tns:amdSoapSolicitudProductoNominadoV2.ExecuteSoapIn">
+    </input>
+      <output message="tns:amdSoapSolicitudProductoNominadoV2.ExecuteSoapOut">
+    </output>
+    </operation>
+  </portType>
+  <binding name="amdSoapSolicitudProductoNominadoV2SoapBinding" type="tns:amdSoapSolicitudProductoNominadoV2SoapPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Execute">
+      <soap:operation soapAction="ApiMidineroaction/AAMDSOAPSOLICITUDPRODUCTONOMINADOV2.Execute"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="amdSoapSolicitudProductoNominadoV2">
+    <port name="amdSoapSolicitudProductoNominadoV2SoapPort" binding="tns:amdSoapSolicitudProductoNominadoV2SoapBinding">
+      <soap:address location="http://ec2-18-218-34-86.us-east-2.compute.amazonaws.com:8280/md/solicitudes/rp/soap/productos_nominados/1.1.0"/>
+    </port>
+  </service>
+</definitions>

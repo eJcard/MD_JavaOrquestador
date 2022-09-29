@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
+      
+    <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
+Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2022.09.15 a las 07:35:12 PM UYT 
+
+  -->
+      
+    <bindings xmlns:tns="ApiMidinero" if-exists="true" scd="x-schema::tns">
+            
+        <schemaBindings map="false">
+                  
+            <package name="uy.com.md.global.soap.client.aamdsoaprecargargp"/>
+                
+        </schemaBindings>
+            
+        <bindings if-exists="true" scd="tns:amdSoapRecargarGP.Execute">
+                  
+            <class ref="uy.com.md.global.soap.client.aamdsoaprecargargp.AmdSoapRecargarGPExecute"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:sdtCamposValor">
+                  
+            <class ref="uy.com.md.global.soap.client.aamdsoaprecargargp.SdtCamposValor"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:amdSoapRecargarGP.ExecuteResponse">
+                  
+            <class ref="uy.com.md.global.soap.client.aamdsoaprecargargp.AmdSoapRecargarGPExecuteResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:SDTResultadoEstado">
+                  
+            <class ref="uy.com.md.global.soap.client.aamdsoaprecargargp.SDTResultadoEstado"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:sdtCamposValor.CampoValorItem">
+                  
+            <class ref="uy.com.md.global.soap.client.aamdsoaprecargargp.SdtCamposValorCampoValorItem"/>
+                
+        </bindings>
+          
+    </bindings>
+    
+</bindings>

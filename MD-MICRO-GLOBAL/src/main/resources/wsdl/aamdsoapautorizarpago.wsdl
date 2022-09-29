@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions name="amdSoapAutorizarPago" targetNamespace="ApiMidinero" xmlns:wsdlns="ApiMidinero" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="ApiMidinero">
+	<types>
+		<schema targetNamespace="ApiMidinero" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" elementFormDefault="qualified">
+			<complexType name="amdAutorizarPagoEntrada">
+				<sequence>
+					<element name="DocumentoTipo" type="xsd:short">
+					</element>
+					<element name="DocumentoNumero" type="xsd:string">
+					</element>
+					<element name="ProductoTipo" type="xsd:short">
+					</element>
+					<element name="Pin" type="xsd:string">
+					</element>
+					<element name="Moneda" type="xsd:short">
+					</element>
+					<element name="Importe" type="xsd:double">
+					</element>
+					<element name="DescuentoIva" type="xsd:double">
+					</element>
+					<element name="Metadata">
+						<complexType>
+							<sequence>
+								<element minOccurs="0" maxOccurs="unbounded" name="Campo" type="tns:amdAutorizarPagoEntrada.Campo">
+								</element>
+							</sequence>
+						</complexType>
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="ArrayOfamdAutorizarPagoEntrada.Campo">
+				<sequence>
+					<element minOccurs="0" maxOccurs="unbounded" name="amdAutorizarPagoEntrada.Campo" type="tns:amdAutorizarPagoEntrada.Campo">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="amdAutorizarPagoEntrada.Campo">
+				<sequence>
+					<element name="Nombre" type="xsd:string">
+					</element>
+					<element name="Valor" type="xsd:string">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="SDTResultadoEstado">
+				<sequence>
+					<element name="ResultadoEstado" type="xsd:short">
+					</element>
+					<element name="ResultadoCobranzaId" type="xsd:long">
+					</element>
+					<element name="ResultadoTimeStamp" type="xsd:dateTime" nillable="true">
+					</element>
+					<element name="ResultadoMensaje" type="xsd:string">
+					</element>
+					<element name="ResultadoErrorCodigo" type="xsd:string">
+					</element>
+					<element name="ResultadoErroCodigoSecuencia" type="xsd:short">
+					</element>
+					<element name="ResultadoNivel" type="xsd:short">
+					</element>
+					<element name="ResultadoMensajeProgramador" type="xsd:string">
+					</element>
+					<element name="ResultadoProgramaOrigen" type="xsd:string">
+					</element>
+				</sequence>
+			</complexType>
+			<element name="amdSoapAutorizarPago.Execute">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Entrada" type="tns:amdAutorizarPagoEntrada"/>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="amdSoapAutorizarPago.ExecuteResponse">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Response" type="tns:SDTResultadoEstado"/>
+						<element minOccurs="1" maxOccurs="1" name="Numeroautorizacion" type="xsd:string"/>
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+	</types>
+	<message name="amdSoapAutorizarPago.ExecuteSoapIn">
+		<part name="parameters" element="tns:amdSoapAutorizarPago.Execute"/>
+	</message>
+	<message name="amdSoapAutorizarPago.ExecuteSoapOut">
+		<part name="parameters" element="tns:amdSoapAutorizarPago.ExecuteResponse"/>
+	</message>
+	<portType name="amdSoapAutorizarPagoSoapPort">
+		<operation name="Execute">
+			<input message="wsdlns:amdSoapAutorizarPago.ExecuteSoapIn"/>
+			<output message="wsdlns:amdSoapAutorizarPago.ExecuteSoapOut"/>
+		</operation>
+	</portType>
+	<binding name="amdSoapAutorizarPagoSoapBinding" type="wsdlns:amdSoapAutorizarPagoSoapPort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="Execute">
+			<soap:operation soapAction="ApiMidineroaction/AAMDSOAPAUTORIZARPAGO.Execute"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="amdSoapAutorizarPago">
+		<port name="amdSoapAutorizarPagoSoapPort" binding="wsdlns:amdSoapAutorizarPagoSoapBinding">
+			<soap:address location="http://172.31.154.10:8281/UATApiMidinero/servlet/aamdsoapautorizarpago"/>
+		</port>
+	</service>
+</definitions>

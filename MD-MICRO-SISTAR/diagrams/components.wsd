@@ -1,0 +1,39 @@
+@startuml
+
+  package "WSO2 - EI" {
+    node node as o {
+      [Orquestador]
+    }
+  }
+
+  node "node" as n1 {
+    component "service agent" as SA {
+      interface "API" as API_SA
+      API_SA - [Controller]
+      [Service]
+      [ModelMapper]
+    }
+  }
+
+  node "node" as n2 {
+  interface "Props" as Props
+    Props - [ConfigServer]
+  }
+  
+  cloud {
+    interface "API" as API_PROC
+    API_PROC - [Procesadora]
+  }
+  
+  folder "Config files repository (git)" {
+    collections "property files" as PF
+  }
+
+  [Service] -u-( API_PROC: REST/SOAP
+  SA #--( Props: REST
+
+  [Controller] ..> [Service]
+  [Service] .> [ModelMapper]
+  [Orquestador] --( API_SA: REST
+  [ConfigServer] --> PF
+@enduml

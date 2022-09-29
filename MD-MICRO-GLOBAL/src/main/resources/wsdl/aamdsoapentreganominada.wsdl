@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions name="amdSoapEntregaNominada" targetNamespace="ApiMidinero" xmlns:wsdlns="ApiMidinero" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="ApiMidinero">
+	<types>
+		<schema targetNamespace="ApiMidinero" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" elementFormDefault="qualified">
+			<complexType name="SDTResultadoEstado">
+				<sequence>
+					<element name="ResultadoEstado" type="xsd:short">
+					</element>
+					<element name="ResultadoCobranzaId" type="xsd:long">
+					</element>
+					<element name="ResultadoTimeStamp" type="xsd:dateTime" nillable="true">
+					</element>
+					<element name="ResultadoMensaje" type="xsd:string">
+					</element>
+					<element name="ResultadoErrorCodigo" type="xsd:string">
+					</element>
+					<element name="ResultadoErroCodigoSecuencia" type="xsd:short">
+					</element>
+					<element name="ResultadoNivel" type="xsd:short">
+					</element>
+					<element name="ResultadoMensajeProgramador" type="xsd:string">
+					</element>
+					<element name="ResultadoProgramaOrigen" type="xsd:string">
+					</element>
+				</sequence>
+			</complexType>
+			<element name="amdSoapEntregaNominada.Execute">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Trackid" type="xsd:string"/>
+						<element minOccurs="1" maxOccurs="1" name="Tipodocumento" type="xsd:int"/>
+						<element minOccurs="1" maxOccurs="1" name="Documento" type="xsd:string"/>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="amdSoapEntregaNominada.ExecuteResponse">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Response" type="tns:SDTResultadoEstado"/>
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+	</types>
+	<message name="amdSoapEntregaNominada.ExecuteSoapIn">
+		<part name="parameters" element="tns:amdSoapEntregaNominada.Execute"/>
+	</message>
+	<message name="amdSoapEntregaNominada.ExecuteSoapOut">
+		<part name="parameters" element="tns:amdSoapEntregaNominada.ExecuteResponse"/>
+	</message>
+	<portType name="amdSoapEntregaNominadaSoapPort">
+		<operation name="Execute">
+			<input message="wsdlns:amdSoapEntregaNominada.ExecuteSoapIn"/>
+			<output message="wsdlns:amdSoapEntregaNominada.ExecuteSoapOut"/>
+		</operation>
+	</portType>
+	<binding name="amdSoapEntregaNominadaSoapBinding" type="wsdlns:amdSoapEntregaNominadaSoapPort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="Execute">
+			<soap:operation soapAction="ApiMidineroaction/AAMDSOAPENTREGANOMINADA.Execute"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="amdSoapEntregaNominada">
+		<port name="amdSoapEntregaNominadaSoapPort" binding="wsdlns:amdSoapEntregaNominadaSoapBinding">
+			<soap:address location="http://10.15.135.55:8080/ApiMidineroSolicitudes/servlet/aamdsoapentreganominada"/>
+		</port>
+	</service>
+</definitions>

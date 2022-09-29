@@ -1,0 +1,366 @@
+{
+  "title": "NewCardRequestDto",
+  "description": "Auto generated JSON schema based on the 'NewCardRequestDto Unamed' file",
+  "type": "object",
+  "properties": {
+    "operaPorTerceros": {
+      "type": "boolean"
+    },
+    "numeroDeSobre": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 18
+    },
+    "producto": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 3
+    },
+    "grupoAfinidad": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 3
+    },
+    "beneficiario": {
+      "properties": {
+        "apellido2": {
+          "type": "string"
+        },
+        "fechaNacimiento": {
+          "type": "string"
+        },
+        "direccion": {
+          "type": "object",
+          "properties": {
+            "puerta": {
+              "type": "string"
+            },
+            "piso": {
+              "type": "string"
+            },
+            "barrio": {
+              "type": "number"
+            },
+            "codigoPostal": {
+              "type": "string"
+            },
+            "calle": {
+              "type": "string"
+            },
+            "apto": {
+              "type": "string"
+            },
+            "amplicacionCalle": {
+              "type": "string"
+            },
+            "departamento": {
+              "type": "number"
+            },
+            "localidad": {
+              "type": "number"
+            },
+            "residente": {
+              "type": "boolean"
+            },
+            "pais": {
+              "type": "string"
+            }
+          }
+        },
+        "message": {
+          "enum": "No corresponde a los valores predeterminados",
+          "minLength": "No cumple con la longitud minima",
+          "maxLength": "No cumple con la longitud maxima",
+          "type": "Tipo de campo invalido"
+        },
+        "required": [
+          "puerta",
+          "barrio",
+          "codigoPostal",
+          "calle",
+          "departamento",
+          "localidad",
+          "residente",
+          "pais"
+        ]
+      },
+      "estadoCivil": {
+        "type": "string",
+        "enum": [
+          "S",
+          "C",
+          "D",
+          "O",
+          "s",
+          "c",
+          "d",
+          "o"
+        ]
+      },
+      "nombre2": {
+        "type": "string"
+      },
+      "nombre": {
+        "type": "string"
+      },
+      "nacionalidad": {
+        "type": "string"
+      },
+      "actividad": {
+        "type": "string"
+      },
+      "apellido": {
+        "type": "string"
+      },
+      "doc": {
+        "type": "object",
+        "properties": {
+          "num": {
+            "type": "string",
+            "minLength": 1
+          },
+          "tipoDoc": {
+            "type": "string",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "pais": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "num",
+          "tipoDoc",
+          "pais"
+        ]
+      },
+      "telefonos": {
+        "type": "array",
+        "items": {
+          "properties": {
+            "num": {
+              "type": "string"
+            },
+            "tipoTel": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "num",
+            "tipoTel"
+          ]
+        }
+      },
+      "sexo": {
+        "type": "string",
+        "enum": [
+          "M",
+          "F",
+          "O",
+          "m",
+          "f",
+          "o"
+        ]
+      },
+      "email": {
+        "type": "string"
+      }
+    },
+    "message": {
+      "enum": "No corresponde a los valores predeterminados",
+      "minLength": "No cumple con la longitud minima",
+      "maxLength": "No cumple con la longitud maxima",
+      "type": "Tipo de campo invalido"
+    },
+    "required": [
+      "nombre",
+      "apellido",
+      "fechaNacimiento",
+      "direccion",
+      "telefonos",
+      "sexo",
+      "email"
+    ]
+  },
+  "rrn": {
+    "type": "number"
+  },
+  "red": {
+    "type": "string",
+    "minLength": 1,
+    "maxLength": 3
+  },
+  "marca": {
+    "type": "number"
+  },
+  "representante": {
+    "type": "object",
+    "properties": {
+      "apellido2": {
+        "type": "string"
+      },
+      "relacion": {
+        "type": "string",
+        "enum": [
+          "padre",
+          "madre",
+          "tutor",
+          "otro"
+        ]
+      },
+      "fechaNacimiento": {
+        "type": "string"
+      },
+      "direccion": {
+        "type": "object",
+        "properties": {
+          "puerta": {
+            "type": "string"
+          },
+          "piso": {
+            "type": "string"
+          },
+          "barrio": {
+            "type": "number"
+          },
+          "codigoPostal": {
+            "type": "string"
+          },
+          "calle": {
+            "type": "string"
+          },
+          "apto": {
+            "type": "string"
+          },
+          "amplicacionCalle": {
+            "type": "string"
+          },
+          "departamento": {
+            "type": "number"
+          },
+          "localidad": {
+            "type": "number"
+          },
+          "residente": {
+            "type": "boolean"
+          },
+          "pais": {
+            "type": "string"
+          }
+        }
+      },
+      "estadoCivil": {
+        "type": "string",
+        "enum": [
+          "S",
+          "C",
+          "D",
+          "O",
+          "s",
+          "c",
+          "d",
+          "o"
+        ]
+      },
+      "nombre2": {
+        "type": "string"
+      },
+      "nombre": {
+        "type": "string"
+      },
+      "nacionalidad": {
+        "type": "string"
+      },
+      "actividad": {
+        "type": "string"
+      },
+      "apellido": {
+        "type": "string"
+      },
+      "doc": {
+        "type": "object",
+        "properties": {
+          "num": {
+            "type": "string"
+          },
+          "tipoDoc": {
+            "type": "string",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "pais": {
+            "type": "string"
+          }
+        }
+      },
+      "telefonos": {
+        "type": "array",
+        "items": {
+          "properties": {
+            "num": {
+              "type": "string"
+            },
+            "tipoTel": {
+              "type": "number"
+            }
+          }
+        }
+      },
+      "sexo": {
+        "type": "string",
+        "enum": [
+          "M",
+          "F",
+          "O",
+          "m",
+          "f",
+          "o"
+        ]
+      },
+      "email": {
+        "type": "string"
+      }
+    }
+  },
+  "sucursal": {
+    "type": "string",
+    "minLength": 1,
+    "maxLength": 3
+  },
+  "redSolicitud": {
+    "type": "string",
+    "minLength": 1,
+    "maxLength": 3
+  },
+  "sucursalSolicitud": {
+    "type": "string",
+    "minLength": 1,
+    "maxLength": 3
+  },
+  "sucursalEntrega": {
+    "type": "string",
+    "minLength": 1,
+    "maxLength": 3
+  },
+  "emisor": {
+    "type": "string",
+    "minLength": 1,
+    "maxLength": 3
+  },
+  "message": {
+    "minLength": "No cumple con la longitud minima",
+    "maxLength": "No cumple con la longitud maxima",
+    "type": "Tipo de campo invalido",
+    "enum": "No corresponde a los valores predeterminados"
+  },
+  "required": [
+    "grupoAfinidad",
+    "beneficiario",
+    "rrn",
+    "numeroDeSobre"
+  ]
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CrearTarjetaPrepagaInnominada xmlns="http://tempuri.org/">
+    <solicitudPrepagaInnominada>
+        <UsuaCodi>usr</UsuaCodi>
+        <RequestExternalId>123456</RequestExternalId>
+        <Password>pwd</Password>
+        <TipoDocuCodi>1</TipoDocuCodi>
+        <PersoDocuNume>10000008</PersoDocuNume>
+        <PersoNombre>EDUARDO ANDRES</PersoNombre>
+        <PersoApe>CARBALLIDO LORENZOTTI</PersoApe>
+        <TeleNume>099189167</TeleNume>
+        <PersoEMail>eduardo.carballido@atos.net</PersoEMail>
+        <PersoSexo>M</PersoSexo>
+        <PersoNacimFecha>1975-01-04T00:00:00.000Z</PersoNacimFecha>
+        <DireccionParticular>
+            <DomiCalle>Solomeo Paredes 1234</DomiCalle>
+            <DomiPuerta>A</DomiPuerta>
+            <DomiDepar>1</DomiDepar>
+            <DomiRefe>1000</DomiRefe>
+            <DomiPiso>10</DomiPiso>
+            <PaisCodi>1</PaisCodi>
+            <ProvinCodi>1</ProvinCodi>
+            <DomiPostalCodi>11600</DomiPostalCodi>
+            <PaisDescri>URUGUAY</PaisDescri>
+        </DireccionParticular>
+        <PaisCodiNacionalidad>1</PaisCodiNacionalidad>
+        <NumSobre>3380000000000103</NumSobre>
+    </solicitudPrepagaInnominada>
+</CrearTarjetaPrepagaInnominada>

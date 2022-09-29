@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} ${hostname} [CorrelationID: %X{activityid}] [Username: %X{uact}] [%thread] %-5level - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="stdout.file" class="ch.qos.logback.core.FileAppender">
+        <file>md-jcard.log</file>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} ${hostname} [CorrelationID: %X{activityid}] [Username: %X{uact}] [%thread] %-5level - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="atos.trace.appender" class="ch.qos.logback.core.FileAppender">
+        <file>md-jcard-trace.log</file>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} ${hostname} [CorrelationID: %X{activityid}] [Username: %X{uact}] %-5level - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="atos.audit.appender" class="ch.qos.logback.core.FileAppender">
+        <file>md-jcard-audit.log</file>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} ${hostname} [CorrelationID: %X{activityid}] [Username: %X{uact}] %-5level - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <logger name="atos.trace" level="DEBUG">
+        <appender-ref ref="atos.trace.appender"/>
+    </logger>
+
+    <logger name="atos.audit" level="DEBUG">
+        <appender-ref ref="atos.audit.appender"/>
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="stdout.file"/>
+    </root>
+</configuration>

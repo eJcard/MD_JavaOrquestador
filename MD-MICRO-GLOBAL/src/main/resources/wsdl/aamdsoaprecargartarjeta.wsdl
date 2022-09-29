@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="amdSoapRecargarTarjeta" targetNamespace="ApiMidinero" xmlns:wsdlns="ApiMidinero" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="ApiMidinero">
+  <types>
+    <schema targetNamespace="ApiMidinero" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">
+      <complexType name="SDTResultadoEstado">
+        <sequence>
+          <element name="ResultadoEstado" type="xsd:short"/>
+          <element name="ResultadoCobranzaId" type="xsd:long"/>
+          <element name="ResultadoTimeStamp" type="xsd:dateTime" nillable="true"/>
+          <element name="ResultadoMensaje" type="xsd:string"/>
+          <element name="ResultadoErrorCodigo" type="xsd:string"/>
+          <element name="ResultadoErroCodigoSecuencia" type="xsd:short"/>
+          <element name="ResultadoNivel" type="xsd:short"/>
+          <element name="ResultadoMensajeProgramador" type="xsd:string"/>
+          <element name="ResultadoProgramaOrigen" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <element name="amdSoapRecargarTarjeta.Execute">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="Paisdocumento" type="xsd:int"/>
+            <element minOccurs="1" maxOccurs="1" name="Tipodocumento" type="xsd:int"/>
+            <element minOccurs="1" maxOccurs="1" name="Documento" type="xsd:string"/>
+            <element minOccurs="1" maxOccurs="1" name="Tipoproducto" type="xsd:int"/>
+            <element minOccurs="1" maxOccurs="1" name="Moneda" type="xsd:short"/>
+            <element minOccurs="1" maxOccurs="1" name="Importe" type="xsd:double"/>
+            <element minOccurs="1" maxOccurs="1" name="Referencia" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="amdSoapRecargarTarjeta.ExecuteResponse">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="Response" type="tns:SDTResultadoEstado"/>
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="amdSoapRecargarTarjeta.ExecuteSoapIn">
+    <part name="parameters" element="tns:amdSoapRecargarTarjeta.Execute"/>
+  </message>
+  <message name="amdSoapRecargarTarjeta.ExecuteSoapOut">
+    <part name="parameters" element="tns:amdSoapRecargarTarjeta.ExecuteResponse"/>
+  </message>
+  <portType name="amdSoapRecargarTarjetaSoapPort">
+    <operation name="Execute">
+      <input message="wsdlns:amdSoapRecargarTarjeta.ExecuteSoapIn"/>
+      <output message="wsdlns:amdSoapRecargarTarjeta.ExecuteSoapOut"/>
+    </operation>
+  </portType>
+  <binding name="amdSoapRecargarTarjetaSoapBinding" type="wsdlns:amdSoapRecargarTarjetaSoapPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Execute">
+      <soap:operation soapAction="ApiMidineroaction/AAMDSOAPRECARGARTARJETA.Execute"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="amdSoapRecargarTarjeta">
+    <port name="amdSoapRecargarTarjetaSoapPort" binding="wsdlns:amdSoapRecargarTarjetaSoapBinding">
+      <soap:address location="http://uat-napi1:8080/ApiMidineroTransacciones/servlet/aamdsoaprecargartarjeta"/>
+    </port>
+  </service>
+</definitions>

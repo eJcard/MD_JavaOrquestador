@@ -1,0 +1,17 @@
+{
+  "respuesta": {
+    "response": {
+      "resultadoEstado": 200,
+      "resultadoCobranzaId": 20319,
+      "resultadoTimeStamp": "2020-08-28T14:57:15.000+00:00",
+      "resultadoMensaje": "",
+      "resultadoErrorCodigo": "",
+      "resultadoErroCodigoSecuencia": 0,
+      "resultadoNivel": 0,
+      "resultadoMensajeProgramador": "",
+      "resultadoProgramaOrigen": ""
+    }
+  },
+  "resultado": true,
+  "mensajes": []
+}

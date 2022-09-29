@@ -1,0 +1,45 @@
+@startuml
+
+note top of SistarController
+Annotations en metodos:
+solicitudProductoNominado - @PostMapping("solicitud-producto-nominado")
+end note
+
+annotation SistarController <<@RestController>> <<@RequestMapping("sistar")>>
+class SistarController {
+  -SistarService sistarService
+  +solicitudProductoNominado(String, GlobalRequestDto): ResponseEntity<ResponseDto<ABMCUENTATARJETAResponse>>
+}
+
+class SistarService 
+{
+  -ModelMapper modelMapper
+  -SistarClient sistarClient
+  +ResponseDto<ABMCUENTATARJETAResponse> solicitudProductoNominado(String, JcardRequestDto)
+  -ABMCUENTATARJETA mapDatosRequest(ABMCUENTATARJETA soapRequest, JcardRequestDto jcardRequest)
+}
+
+class ABMCUENTATARJETA {
+  ~String usuariows
+  ~String password
+  ~String operationCode
+  ...
+}
+
+class JcardRequestDto {
+  String token
+  BeneficiarioDto beneficiario
+  String sucursal
+  String producto
+  String red
+  String grupoAfinidad
+  RepresentanteDto representante
+  String emisor
+  Boolean operaPorTerceros
+}
+
+SistarService ..> ABMCUENTATARJETA : <<use>>
+SistarService ..> JcardRequestDto : <<use>>
+SistarController ...> SistarService : <<use>>
+
+@enduml

@@ -1,0 +1,211 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!--suppress ALL -->
+<definitions name="SistarbancMDTrfC2B" targetNamespace="ConsultasVISAWeb"
+	xmlns:wsdlns="ConsultasVISAWeb"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:tns="ConsultasVISAWeb">
+	<types>
+		<schema targetNamespace="ConsultasVISAWeb"
+			xmlns="http://www.w3.org/2001/XMLSchema"
+			xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" elementFormDefault="qualified">
+			<complexType name="MDAutorizacion">
+				<sequence>
+					<element name="NROCUENTA" type="xsd:long">
+					</element>
+					<element name="CODMOVIMIENTO" type="xsd:long">
+					</element>
+					<element name="SUBCODMOVIMIENTO" type="xsd:long">
+					</element>
+					<element name="MONEDA" type="xsd:short">
+					</element>
+					<element name="IMPORTE" type="xsd:double">
+					</element>
+					<element name="IDTRANSACCION" type="xsd:long">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="WSMiDineroAutorizacionTarjetaResult">
+				<sequence>
+					<element name="ErrorCode" type="xsd:long">
+					</element>
+					<element name="ErrorDescription" type="xsd:string">
+					</element>
+					<element name="Pin" type="xsd:string">
+					</element>
+					<element name="Cuenta" type="xsd:string">
+					</element>
+					<element name="CodConfirmacion" type="xsd:int">
+					</element>
+					<element name="RechaMotiCodi" type="xsd:int">
+					</element>
+					<element name="RechaMotiDescri" type="xsd:string">
+					</element>
+					<element name="AutoId" type="xsd:long">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="MDConfirmacion">
+				<sequence>
+					<element name="NROCUENTA" type="xsd:long">
+					</element>
+					<element name="IDTRANSACCION" type="xsd:long">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="WSMiDineroConfirmarAutorizacionPrepagaResult">
+				<sequence>
+					<element name="ErrorCode" type="xsd:long">
+					</element>
+					<element name="ErrorDescription" type="xsd:string">
+					</element>
+					<element name="Pin" type="xsd:string">
+					</element>
+					<element name="Cuenta" type="xsd:string">
+					</element>
+					<element name="ConsuCupon" type="xsd:long">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="MDReverso">
+				<sequence>
+					<element name="NROCUENTA" type="xsd:long">
+					</element>
+					<element name="IDTRANSACCION" type="xsd:long">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="WSMiDineroResult">
+				<sequence>
+					<element name="ErrorCode" type="xsd:long">
+					</element>
+					<element name="ErrorDescription" type="xsd:string">
+					</element>
+					<element name="Pin" type="xsd:string">
+					</element>
+					<element name="Cuenta" type="xsd:string">
+					</element>
+				</sequence>
+			</complexType>
+			<element name="SistarbancMDTrfC2B.AUTORIZACION">
+				<complexType>
+					<sequence>
+                        <element minOccurs="1" maxOccurs="1" name="Usuariows" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Passws" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Usuario" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Mdautorizacion" type="tns:MDAutorizacion" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDTrfC2B.AUTORIZACIONResponse">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Wsmidineroautorizaciontarjetaresult" type="tns:WSMiDineroAutorizacionTarjetaResult" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDTrfC2B.CONFIRMACION">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Usuariows" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Passws" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Usuario" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Mdconfirmacion" type="tns:MDConfirmacion" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDTrfC2B.CONFIRMACIONResponse">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Wsmidineroconfirmarautorizacionprepagaresult" type="tns:WSMiDineroConfirmarAutorizacionPrepagaResult" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDTrfC2B.REVERSO">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Usuariows" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Passws" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Usuario" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Mdreverso" type="tns:MDReverso" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDTrfC2B.REVERSOResponse">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Wsmidineroresult" type="tns:WSMiDineroResult" />
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+	</types>
+	<message name="SistarbancMDTrfC2B.AUTORIZACIONSoapIn">
+		<part name="parameters" element="tns:SistarbancMDTrfC2B.AUTORIZACION" />
+	</message>
+	<message name="SistarbancMDTrfC2B.AUTORIZACIONSoapOut">
+		<part name="parameters" element="tns:SistarbancMDTrfC2B.AUTORIZACIONResponse" />
+	</message>
+	<message name="SistarbancMDTrfC2B.CONFIRMACIONSoapIn">
+		<part name="parameters" element="tns:SistarbancMDTrfC2B.CONFIRMACION" />
+	</message>
+	<message name="SistarbancMDTrfC2B.CONFIRMACIONSoapOut">
+		<part name="parameters" element="tns:SistarbancMDTrfC2B.CONFIRMACIONResponse" />
+	</message>
+	<message name="SistarbancMDTrfC2B.REVERSOSoapIn">
+		<part name="parameters" element="tns:SistarbancMDTrfC2B.REVERSO" />
+	</message>
+	<message name="SistarbancMDTrfC2B.REVERSOSoapOut">
+		<part name="parameters" element="tns:SistarbancMDTrfC2B.REVERSOResponse" />
+	</message>
+	<portType name="SistarbancMDTrfC2BSoapPort">
+		<operation name="AUTORIZACION">
+			<input message="wsdlns:SistarbancMDTrfC2B.AUTORIZACIONSoapIn" />
+			<output message="wsdlns:SistarbancMDTrfC2B.AUTORIZACIONSoapOut" />
+		</operation>
+		<operation name="CONFIRMACION">
+			<input message="wsdlns:SistarbancMDTrfC2B.CONFIRMACIONSoapIn" />
+			<output message="wsdlns:SistarbancMDTrfC2B.CONFIRMACIONSoapOut" />
+		</operation>
+		<operation name="REVERSO">
+			<input message="wsdlns:SistarbancMDTrfC2B.REVERSOSoapIn" />
+			<output message="wsdlns:SistarbancMDTrfC2B.REVERSOSoapOut" />
+		</operation>
+	</portType>
+	<binding name="SistarbancMDTrfC2BSoapBinding" type="wsdlns:SistarbancMDTrfC2BSoapPort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<operation name="AUTORIZACION">
+			<soap:operation soapAction="ConsultasVISAWebaction/ASISTARBANCMDTRFC2B.AUTORIZACION" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="CONFIRMACION">
+			<soap:operation soapAction="ConsultasVISAWebaction/ASISTARBANCMDTRFC2B.CONFIRMACION" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="REVERSO">
+			<soap:operation soapAction="ConsultasVISAWebaction/ASISTARBANCMDTRFC2B.REVERSO" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+	</binding>
+	<service name="SistarbancMDTrfC2B">
+		<port name="SistarbancMDTrfC2BSoapPort" binding="wsdlns:SistarbancMDTrfC2BSoapBinding">
+			<soap:address location="https://172.31.154.10:4445/WSMidineroTest/asistarbancmdtrfc2b.aspx" />
+		</port>
+	</service>
+</definitions>

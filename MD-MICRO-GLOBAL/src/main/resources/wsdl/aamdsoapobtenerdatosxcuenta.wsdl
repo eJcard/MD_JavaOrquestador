@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions name="amdSoapObtenerDatosXCuenta" targetNamespace="ApiMidinero" xmlns:wsdlns="ApiMidinero" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns1="RP_MTB" xmlns:tns="ApiMidinero">
+	<types>
+		<schema targetNamespace="RP_MTB" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" elementFormDefault="qualified">
+			<import namespace="ApiMidinero"/>
+			<complexType name="ArrayOfSDTCampoValor.SDTCampoValorItem">
+				<sequence>
+					<element minOccurs="0" maxOccurs="unbounded" name="SDTCampoValor.SDTCampoValorItem" type="tns1:SDTCampoValor.SDTCampoValorItem">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="SDTCampoValor.SDTCampoValorItem">
+				<sequence>
+					<element name="Campo" type="xsd:string">
+					</element>
+					<element name="Valor" type="xsd:string">
+					</element>
+				</sequence>
+			</complexType>
+		</schema>
+		<schema targetNamespace="ApiMidinero" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" elementFormDefault="qualified">
+			<import namespace="RP_MTB"/>
+			<complexType name="SDTResultadoEstado">
+				<sequence>
+					<element name="ResultadoEstado" type="xsd:short">
+					</element>
+					<element name="ResultadoCobranzaId" type="xsd:long">
+					</element>
+					<element name="ResultadoTimeStamp" type="xsd:dateTime" nillable="true">
+					</element>
+					<element name="ResultadoMensaje" type="xsd:string">
+					</element>
+					<element name="ResultadoErrorCodigo" type="xsd:string">
+					</element>
+					<element name="ResultadoErroCodigoSecuencia" type="xsd:short">
+					</element>
+					<element name="ResultadoNivel" type="xsd:short">
+					</element>
+					<element name="ResultadoMensajeProgramador" type="xsd:string">
+					</element>
+					<element name="ResultadoProgramaOrigen" type="xsd:string">
+					</element>
+				</sequence>
+			</complexType>
+			<element name="amdSoapObtenerDatosXCuenta.Execute">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Cuenta" type="xsd:long"/>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="amdSoapObtenerDatosXCuenta.ExecuteResponse">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Nombre" type="xsd:string"/>
+						<element minOccurs="1" maxOccurs="1" name="Apellido" type="xsd:string"/>
+						<element minOccurs="1" maxOccurs="1" name="Campovalor" type="tns1:ArrayOfSDTCampoValor.SDTCampoValorItem"/>
+						<element minOccurs="1" maxOccurs="1" name="Sdtresultadoestado" type="tns:SDTResultadoEstado"/>
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+	</types>
+	<message name="amdSoapObtenerDatosXCuenta.ExecuteSoapIn">
+		<part name="parameters" element="tns:amdSoapObtenerDatosXCuenta.Execute"/>
+	</message>
+	<message name="amdSoapObtenerDatosXCuenta.ExecuteSoapOut">
+		<part name="parameters" element="tns:amdSoapObtenerDatosXCuenta.ExecuteResponse"/>
+	</message>
+	<portType name="amdSoapObtenerDatosXCuentaSoapPort">
+		<operation name="Execute">
+			<input message="wsdlns:amdSoapObtenerDatosXCuenta.ExecuteSoapIn"/>
+			<output message="wsdlns:amdSoapObtenerDatosXCuenta.ExecuteSoapOut"/>
+		</operation>
+	</portType>
+	<binding name="amdSoapObtenerDatosXCuentaSoapBinding" type="wsdlns:amdSoapObtenerDatosXCuentaSoapPort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="Execute">
+			<soap:operation soapAction="ApiMidineroaction/AAMDSOAPOBTENERDATOSXCUENTA.Execute"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="amdSoapObtenerDatosXCuenta">
+		<port name="amdSoapObtenerDatosXCuentaSoapPort" binding="wsdlns:amdSoapObtenerDatosXCuentaSoapBinding">
+			<soap:address location="http://napi-test:8080/betaapimidinero/servlet/aamdsoapobtenerdatosxcuenta"/>
+		</port>
+	</service>
+</definitions>

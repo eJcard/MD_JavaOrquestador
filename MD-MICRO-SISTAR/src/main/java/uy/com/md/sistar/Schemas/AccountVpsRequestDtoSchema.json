@@ -1,0 +1,10 @@
+{
+  "title": "AccountVpsRequestDto",
+  "description": "Auto generated JSON schema based on the 'AccountVpsRequestDto' file",
+  "type": "object",
+  "properties": {
+    "realAccount": {
+      "type": "string"
+    }
+  }
+}

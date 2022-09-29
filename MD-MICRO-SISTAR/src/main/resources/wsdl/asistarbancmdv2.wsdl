@@ -1,0 +1,285 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!--suppress ALL -->
+<definitions name="SistarbancMDV2" targetNamespace="SistarbancPayGroup" xmlns:wsdlns="SistarbancPayGroup" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns3="MOVENPERIODO" xmlns:tns1="DISPONIBLE" xmlns:tns="SistarbancPayGroup">
+	<types>
+		<schema targetNamespace="MOVENPERIODO" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" elementFormDefault="qualified">
+			<import namespace="DISPONIBLE" />
+			<import namespace="SistarbancPayGroup" />
+			<complexType name="MOVENPERIODO">
+				<sequence>
+					<element minOccurs="0" maxOccurs="unbounded" name="MOVENPERIODO.ITEM" type="tns3:MOVENPERIODO.ITEM">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="MOVENPERIODO.ITEM">
+				<sequence>
+					<element name="ERRORCODI" type="xsd:string">
+					</element>
+					<element name="REASON" type="xsd:string">
+					</element>
+					<element name="CARDNUMBER" type="xsd:string">
+					</element>
+					<element name="TRANSACTIONDATE" type="xsd:dateTime" nillable="true">
+					</element>
+					<element name="ORIGINALCURRENCY" type="xsd:short">
+					</element>
+					<element name="ORIGINALAMOUNT" type="xsd:double">
+					</element>
+					<element name="CARDHOLDERCURRENCY" type="xsd:short">
+					</element>
+					<element name="CARDHOLDERAMOUNT" type="xsd:double">
+					</element>
+					<element name="SETTLEMENTCURRENCY" type="xsd:short">
+					</element>
+					<element name="SETTLEMENTAMOUNT" type="xsd:double">
+					</element>
+					<element name="MTI" type="xsd:string">
+					</element>
+					<element name="PROCESSINGCODE" type="xsd:string">
+					</element>
+					<element name="TRANSACTIONBIN" type="xsd:string">
+					</element>
+					<element name="TRXMASKEDPAN" type="xsd:string">
+					</element>
+					<element name="MERCHANTNAME" type="xsd:string">
+					</element>
+					<element name="MCC" type="xsd:short">
+					</element>
+					<element name="COUNTRYCODE" type="xsd:short">
+					</element>
+					<element name="SCOPE" type="xsd:short">
+					</element>
+					<element name="RESPONSECODE" type="xsd:string">
+					</element>
+					<element name="RRN" type="xsd:long">
+					</element>
+					<element name="TERMINALCODE" type="xsd:string">
+					</element>
+					<element name="GEOSTATENAME" type="xsd:string">
+					</element>
+					<element name="GEOCITYNAME" type="xsd:string">
+					</element>
+					<element name="ARN" type="xsd:string">
+					</element>
+					<element name="INSTALLMENTQUANTITY" type="xsd:short">
+					</element>
+					<element name="INSTALLMENTNUMBER" type="xsd:short">
+					</element>
+					<element name="TRANSACTIONDATECUOTA1" type="xsd:date" nillable="true">
+					</element>
+					<element name="AUTHORIZATIONCODE" type="xsd:string">
+					</element>
+					<element name="POSENTRYMODE" type="xsd:short">
+					</element>
+					<element name="CHANNEL" type="xsd:short">
+					</element>
+					<element name="ACQINSTITUTIONCODE" type="xsd:string">
+					</element>
+					<element name="ACCOUNTNUMBER" type="xsd:string">
+					</element>
+					<element name="CONFIRMATIONDATE" type="xsd:date" nillable="true">
+					</element>
+					<element name="DUEDATE" type="xsd:date" nillable="true">
+					</element>
+					<element name="BATCHNUMBER" type="xsd:short">
+					</element>
+					<element name="EXPIRATIONDATE" type="xsd:date" nillable="true">
+					</element>
+					<element name="IDMOVEMENT" type="xsd:long">
+					</element>
+					<element name="IDORIGINALMOVEMENT" type="xsd:long">
+					</element>
+					<element name="CODTX" type="xsd:short">
+					</element>
+					<element name="SUBCODTX" type="xsd:short">
+					</element>
+					<element name="ESTADOTIPO" type="xsd:short">
+					</element>
+					<element name="ESTADOCODI" type="xsd:short">
+					</element>
+					<element name="OBSERVACIONES" type="xsd:string">
+					</element>
+					<element name="REQUESTEXTERNALID" type="xsd:string">
+					</element>
+				</sequence>
+			</complexType>
+		</schema>
+		<schema targetNamespace="DISPONIBLE" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" elementFormDefault="qualified">
+			<import namespace="MOVENPERIODO" />
+			<import namespace="SistarbancPayGroup" />
+			<complexType name="DISPONIBLE">
+				<sequence>
+					<element name="CARDAVAILABLE">
+						<complexType>
+							<sequence>
+								<element minOccurs="0" maxOccurs="unbounded" name="CARDAVAILABLEDTO" type="tns1:DISPONIBLE.CARDAVAILABLEDTO">
+								</element>
+							</sequence>
+						</complexType>
+					</element>
+					<element name="ERRORCODI" type="xsd:string">
+					</element>
+					<element name="REASON" type="xsd:string">
+					</element>
+					<element name="EXTERNALACCOUNTNUMBER" type="xsd:string">
+					</element>
+					<element name="TIPOCAMBIO" type="xsd:double">
+					</element>
+					<element name="ACCOUNTCREDITLIMIT">
+						<complexType>
+							<sequence>
+								<element minOccurs="0" maxOccurs="unbounded" name="ACCOUNTCREDITLIMITDTO" type="tns1:DISPONIBLE.ACCOUNTCREDITLIMITDTO">
+								</element>
+							</sequence>
+						</complexType>
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="ArrayOfDISPONIBLE.CARDAVAILABLEDTO">
+				<sequence>
+					<element minOccurs="0" maxOccurs="unbounded" name="DISPONIBLE.CARDAVAILABLEDTO" type="tns1:DISPONIBLE.CARDAVAILABLEDTO">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="DISPONIBLE.CARDAVAILABLEDTO">
+				<sequence>
+					<element name="CARDNUMBER" type="xsd:string">
+					</element>
+					<element name="CREDITLINE">
+						<complexType>
+							<sequence>
+								<element minOccurs="0" maxOccurs="unbounded" name="CREDITLINEDTO" type="tns1:DISPONIBLE.CARDAVAILABLEDTO.CREDITLINEDTO">
+								</element>
+							</sequence>
+						</complexType>
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="ArrayOfDISPONIBLE.ACCOUNTCREDITLIMITDTO">
+				<sequence>
+					<element minOccurs="0" maxOccurs="unbounded" name="DISPONIBLE.ACCOUNTCREDITLIMITDTO" type="tns1:DISPONIBLE.ACCOUNTCREDITLIMITDTO">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="DISPONIBLE.ACCOUNTCREDITLIMITDTO">
+				<sequence>
+					<element name="CREDITLINEID" type="xsd:int">
+					</element>
+					<element name="ACCOUNTCREDITLIMIT" type="xsd:double">
+					</element>
+					<element name="AVAILABLE" type="xsd:double">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="ArrayOfDISPONIBLE.CARDAVAILABLEDTO.CREDITLINEDTO">
+				<sequence>
+					<element minOccurs="0" maxOccurs="unbounded" name="DISPONIBLE.CARDAVAILABLEDTO.CREDITLINEDTO" type="tns1:DISPONIBLE.CARDAVAILABLEDTO.CREDITLINEDTO">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="DISPONIBLE.CARDAVAILABLEDTO.CREDITLINEDTO">
+				<sequence>
+					<element name="CREDITLINEID" type="xsd:short">
+					</element>
+					<element name="CREDITLIMIT" type="xsd:double">
+					</element>
+					<element name="AVAILABLE" type="xsd:double">
+					</element>
+				</sequence>
+			</complexType>
+		</schema>
+		<schema targetNamespace="SistarbancPayGroup" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" elementFormDefault="qualified">
+			<import namespace="MOVENPERIODO" />
+			<import namespace="DISPONIBLE" />
+			<element name="SistarbancMDV2.DISPONIBLE">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Usuariows" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Passws" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Usuario" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Cardnumber" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Externalaccountnumber" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDV2.DISPONIBLEResponse">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Disponible" type="tns1:DISPONIBLE" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDV2.MOVENPERIODO">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Usuariows" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Passws" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Usuario" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Accountnumber" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Cardnumber" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Movementtype" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Datefrom" type="xsd:date" />
+						<element minOccurs="1" maxOccurs="1" name="Dateto" type="xsd:date" />
+						<element minOccurs="1" maxOccurs="1" name="Cantmovsmax" type="xsd:short" />
+						<element minOccurs="1" maxOccurs="1" name="Moneda" type="xsd:short" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDV2.MOVENPERIODOResponse">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Movenperiodo" type="tns3:MOVENPERIODO" />
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+	</types>
+	<message name="SistarbancMDV2.DISPONIBLESoapIn">
+		<part name="parameters" element="tns:SistarbancMDV2.DISPONIBLE" />
+	</message>
+	<message name="SistarbancMDV2.DISPONIBLESoapOut">
+		<part name="parameters" element="tns:SistarbancMDV2.DISPONIBLEResponse" />
+	</message>
+	<message name="SistarbancMDV2.MOVENPERIODOSoapIn">
+		<part name="parameters" element="tns:SistarbancMDV2.MOVENPERIODO" />
+	</message>
+	<message name="SistarbancMDV2.MOVENPERIODOSoapOut">
+		<part name="parameters" element="tns:SistarbancMDV2.MOVENPERIODOResponse" />
+	</message>
+	<portType name="SistarbancMDV2SoapPort">
+		<operation name="DISPONIBLE">
+			<input message="wsdlns:SistarbancMDV2.DISPONIBLESoapIn" />
+			<output message="wsdlns:SistarbancMDV2.DISPONIBLESoapOut" />
+		</operation>
+		<operation name="MOVENPERIODO">
+			<input message="wsdlns:SistarbancMDV2.MOVENPERIODOSoapIn" />
+			<output message="wsdlns:SistarbancMDV2.MOVENPERIODOSoapOut" />
+		</operation>
+	</portType>
+	<binding name="SistarbancMDV2SoapBinding" type="wsdlns:SistarbancMDV2SoapPort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<operation name="DISPONIBLE">
+			<soap:operation soapAction="SistarbancPayGroupaction/ASISTARBANCMDV2.DISPONIBLE" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="MOVENPERIODO">
+			<soap:operation soapAction="SistarbancPayGroupaction/ASISTARBANCMDV2.MOVENPERIODO" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+	</binding>
+	<service name="SistarbancMDV2">
+		<port name="SistarbancMDV2SoapPort" binding="wsdlns:SistarbancMDV2SoapBinding">
+			<soap:address location="https://172.31.154.10:4445/WSMidineroTest/asistarbancmdv2.aspx" />
+		</port>
+	</service>
+</definitions>

@@ -1,0 +1,114 @@
+sistar:
+  # Mapeo entre codigo/subcodigo de los movimientos, asignado por sistar,
+  # y los codigos ITC manejados or jCard
+  itc_by_sbcode:
+    sbcode-0-0: '220.00.200'
+    sbcode-11-0: '220.00.200'
+    sbcode-11-21: '200.00'
+    sbcode-11-22: '200.00'
+    sbcode-11-24: 'T200.40.01'
+    sbcode-11-25: '200.00'
+    sbcode-11-26-N: '200.22'
+    sbcode-11-26: '200.00'
+    sbcode-11-27-N: 'R200.40.01'
+    sbcode-11-27: 'R200.40.01'
+    sbcode-11-28: 'T200.40.01'
+    sbcode-11-default: '220.00.200'
+    sbcode-12-default: '100.22'
+    sbcode-21-0: '220.01.200'
+    sbcode-21-22: '200.01'
+    sbcode-21-24: '200.01'
+    sbcode-25-26: 'F200.01.02'
+    sbcode-25-37: '200.02'
+    sbcode-25-71: '420.00'
+    sbcode-25-87: '200.02'
+    sbcode-25-91: '200.02'
+    sbcode-25-92: '200.02'
+    sbcode-25-93: '200.02'
+    sbcode-25-94: '200.02'
+    sbcode-25-95: '200.02'
+    sbcode-25-default: 'F200.02'
+    sbcode-31-21: '200.21'
+    sbcode-31-22: '200.21'
+    sbcode-31-23: '200.21'
+    sbcode-31-24: '200.21'
+    sbcode-31-26: '200.21'
+    sbcode-31-27: '200.21'
+    sbcode-31-28: 'T200.40.21'
+    sbcode-31-29: 'R200.40.21'
+    sbcode-31-31: 'T200.40.21'
+    sbcode-31-default: '200.21'
+    sbcode-35-0: 'F200.22'
+    sbcode-35-21: 'F200.21.02'
+    sbcode-35-40: '220.20.200'
+    sbcode-35-87: '220.20.200'
+    sbcode-35-91: '220.20.200'
+    sbcode-35-92: '220.20.200'
+    sbcode-35-93: '220.20.200'
+    sbcode-35-94: '220.20.200'
+    sbcode-35-95: '220.20.200'
+    sbcode-35-default: 'F200.22'
+    sbcode-36-0: 'F200.21.02'
+
+  movement_description:
+    cod-11-scod-22: PAGO POR MIREDPAGOS {currency}
+    cod-12-scod-22: DEV. PAGO POR MIREDPAGOS
+    cod-11-scod-26: PAGO DE SERVICIOS {currency}
+    cod-12-scod-26: DEV. PAGO DE SERVICIOS
+    cod-12-scod-default: DEVOLUCIÓN
+    cod-21-scod-22: RETIRO {currency} LOCAL REDPAGOS
+    cod-21-scod-24: RETIRO {currency} BANRED
+    cod-25-scod-0: AJUSTE de DÉBITO {currency}
+    cod-25-scod-20: IVA COM. RECARGA EN MOSTRADOR
+    cod-25-scod-23: IVA COM. RETIRO BANRED
+    cod-25-scod-26: DB CONVERSIÓN MONEDA
+    cod-25-scod-28: IVA COMISIÓN
+    cod-25-scod-37: DEV. LEY 19.210 {currency}
+    cod-25-scod-39: COM. RETIRO BANRED
+    cod-25-scod-40: IVA COM. RETIRO EN EFECTIVO
+    cod-25-scod-71: REV. RECARGA
+    cod-25-scod-72: COM. RETIRO BANRED
+    cod-25-scod-74: COM. RECARGA MOSTRADOR
+    cod-25-scod-75: COMISIÓN MOV EXTERIOR
+    cod-25-scod-76: COMISIÓN CONSUMO EXTERIOR
+    cod-25-scod-77: COM. TRANSFERENCIAS {currency}
+    cod-25-scod-8: COM. RETIRO EN EFECTIVO
+    cod-25-scod-80: EXT PAGO DE HABERES
+    cod-25-scod-9: CARGO TARJETA
+    cod-25-scod-91: DEV. LEY 17.934 {currency}
+    cod-25-scod-92: DEV. LEY 18.910 {currency}
+    cod-25-scod-93: DEV. LEY 18.999 {currency}
+    cod-25-scod-94: DEV. LEY 18.083 {currency} ARG
+    cod-25-scod-95: DEV. LEY 18.083 {currency} BRA
+    cod-35-scod-0: AJUSTE DE CRÉDITO {currency}
+    cod-35-scod-20: EXT. IVA COMISIÓN
+    cod-35-scod-21: CR CONVERSIÓN MONEDA
+    cod-35-scod-28: EXT IVA COMISIÓN
+    cod-35-scod-37: DEV. CUOTA ANUAL
+    cod-35-scod-39: EXT. COM. RETIRO BANRED
+    cod-35-scod-40: DEV. LEY 19.210 {currency}
+    cod-35-scod-64: DEV. CUOTA ANUAL
+    cod-35-scod-73: BONIFICACIÓN CUOTA ANUAL
+    cod-35-scod-74: EXT COM. RECARGA MOSTRADOR
+    cod-35-scod-75: EXT COMISIÓN MOV EXTERIOR
+    cod-35-scod-76: EXT COMISIÓN MOV EXTERIOR FIJO
+    cod-35-scod-77: EXT COM. TRANSFERENCIAS {currency}
+    cod-35-scod-8: EXT COM. RETIRO EN EFECTIVO
+    cod-35-scod-91: DEV. LEY 17.934 {currency}
+    cod-35-scod-92: DEV. LEY 18.910 {currency}
+    cod-35-scod-93: DEV. LEY 18.999 {currency}
+    cod-35-scod-94: DEV. LEY 18.083 {currency} ARG
+    cod-35-scod-95: DEV. LEY 18.083 {currency} BRA
+
+  movement_merchant:
+    cod-11-scod-22: PAGO POR MIREDPAGOS {currency}
+    cod-11-scod-26: PAGO DE SERVICIOS {currency}
+    cod-21-scod-22: RETIRO {currency} LOCAL REDPAGOS
+    cod-21-scod-24: RETIRO {currency} BANRED
+    cod-25-scod-26: DB CONVERSIÓN MONEDA
+    cod-31-scod-29: CARGA DESDE BANCO
+    cod-35-scod-21: CR CONVERSIÓN MONEDA
+
+  mcc_code_sbcode:
+    cod-11-scod-22: 4899
+    cod-11-scod-26: 4899

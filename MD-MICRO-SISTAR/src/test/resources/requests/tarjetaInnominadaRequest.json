@@ -1,0 +1,50 @@
+{
+  "beneficiario": {
+    "nombre": "EDUARDO",
+    "nombre2": "ANDRES",
+    "apellido": "CARBALLIDO",
+    "apellido2": "LORENZOTTI",
+    "doc": {
+      "tipoDoc": "1",
+      "num": "10000008",
+      "pais": "858"
+    },
+    "actividad": "812345",
+    "direccion": {
+      "residente": true,
+      "calle": "Solomeo Paredes 1234",
+      "puerta": "A",
+      "apto": "1000",
+      "piso": "10",
+      "codigoPostal": "11600",
+      "departamento": 1,
+      "localidad": 20,
+      "pais": "858",
+      "barrio": 1
+    },
+    "email": "eduardo.carballido@atos.net",
+    "nacionalidad": "858",
+    "fechaNacimiento": "19750104",
+    "sexo": "MAS",
+    "estadoCivil": "S",
+    "telefonos": [
+      {
+        "tipoTel": 1,
+        "num": "099189167"
+      },
+      {
+        "tipoTel": 2,
+        "num": "23004005"
+      }
+    ]
+  },
+  "numeroDeSobre": "3380000000000103",
+  "emisor": 36,
+  "producto": "42",
+  "grupoAfinidad": "1",
+  "red": "1",
+  "sucursalEntrega": "20",
+  "sucursal": "1",
+  "sucursalOrigen": "648",
+  "operaPorTerceros": false
+}

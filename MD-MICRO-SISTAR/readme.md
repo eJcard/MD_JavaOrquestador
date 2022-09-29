@@ -1,0 +1,1 @@
+keytool -import -trustcacerts -file cert.pem -alias md_atos_am -keystore C:\Java\openjdk-1.8.0.242-b08/jre/lib/security/cacerts -storepass changeit

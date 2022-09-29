@@ -1,0 +1,82 @@
+{
+  "title": "TransferRequestDto",
+  "description": "Auto generated JSON schema based on the 'TransferRequestDto' file",
+  "type": "object",
+  "properties": {
+    "marca": {
+      "type": "number"
+    },
+    "motivo": {
+      "type": "string"
+    },
+    "monto": {
+      "type": "number"
+    },
+    "sucursal": {
+      "type": "number"
+    },
+    "comprobante": {
+      "type": "string"
+    },
+    "cuenta": {
+      "type": "number"
+    },
+    "moneda": {
+      "type": "number"
+    },
+    "canal": {
+      "type": "string"
+    },
+    "ordenante": {
+      "type": "object",
+      "properties": {
+        "cuenta": {
+          "type": "number"
+        },
+        "emisor": {
+          "type": "number"
+        }
+      }
+    },
+    "referencia": {
+      "type": "string"
+    },
+    "rrn": {
+      "type": "string"
+    },
+    "beneficiario": {
+      "type": "object",
+      "properties": {
+        "codigoDestino": {
+          "type": "string"
+        },
+        "cuentaDestino": {
+          "type": "number"
+        },
+        "cuenta": {
+          "type": "number"
+        },
+        "banco": {
+          "type": "object",
+          "properties": {
+            "cuenta": {
+              "type": "number"
+            },
+            "id": {
+              "type": "string"
+            },
+            "nombre": {
+              "type": "string"
+            }
+          }
+        },
+        "nombre": {
+          "type": "string"
+        },
+        "emisor": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

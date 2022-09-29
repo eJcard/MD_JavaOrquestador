@@ -1,0 +1,28 @@
+{
+  "canal": "",
+  "ordenante": {
+    "emisor": 0,
+    "cuenta": 0
+  },
+  "moneda": 0,
+  "marca": 0,
+  "monto": 0.00,
+  "motivo": "",
+  "referencia": "",
+  "comprobante": "",
+  "rrn": "",
+  "beneficiario": {
+    "nombre": "",
+    "banco": {
+      "nombre": "",
+      "id": "",
+      "cuenta": 0
+    },
+    "cuenta": 0,
+    "emisor": 0,
+    "cuentaDestino": 0,
+    "codigoDestino": ""
+  },
+  "sucursal": 0,
+  "cuenta": 0
+}

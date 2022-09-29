@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} ${hostname} [CorrelationID: %X{activityid}] [Username: %X{uact}] [%thread] %-5level - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="stdout.file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>log/md-sistar.log</file>
+        <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+            <evaluator>
+                <matcher>
+                    <Name>multipleFilter</Name>
+                    <regex>uy\.com\.md\.sistar\.(service\.SistarServiceProperties|service\.SistarService\.getTransactions|util\.SistarMappingUtils|soap\.SistarClient\.movimientos)</regex>
+                </matcher>
+                <matcher>
+                    <Name>configFilter</Name>
+                    <regex>uy\.com\.md\.sistar\.config\.(SistarClientConfig|AuthorizationInterceptor|SistarConfig)</regex>
+                </matcher>
+                <matcher>
+                    <Name>controllersFilter</Name>
+                    <regex>uy\.com\.md\.sistar\.controller\.(AuthorizationInfoBean)</regex>
+                </matcher>
+                <matcher>
+                    <Name>soapFilter</Name>
+                    <regex>(Received response(.|\n)*MOVENPERIODOResponse|INFO  - &lt;\?xml)</regex>
+                </matcher>
+                <expression>multipleFilter.matches(formattedMessage) || controllersFilter.matches(formattedMessage) || configFilter.matches(formattedMessage) || soapFilter.matches(formattedMessage)</expression>
+            </evaluator>
+            <OnMismatch>NEUTRAL</OnMismatch>
+            <OnMatch>DENY</OnMatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>log/md-sistar.log-%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>5</maxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="uy.com.md.common.MaskingPatternLayout">
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} ${hostname} [CorrelationID: %X{activityid}] [Username: %X{uact}] [%thread] %-5level - %.-2000msg%n</pattern>
+                <regex>((40|51|53|53)\d{4})(\d{6})(\d{4})</regex>
+                <replacement>$1******$3</replacement>
+                <regex>([A-F0-9]{4})([A-F0-9]{248})([A-F0-9]{4})</regex>
+                <replacement>$1******$3</replacement>
+                <regex><![CDATA[(?i)(<(\w+:)?passw.*?>)([^<.]*)(.*)]]></regex>
+                <replacement>$1******$4</replacement>
+            </layout>
+        </encoder>
+    </appender>
+
+    <appender name="atos.trace.appender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>log/trace/md-sistar-trace.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>log/trace/md-sistar-trace.log-%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>5</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} ${hostname} [CorrelationID: %X{activityid}] [Username: %X{uact}] %-5level - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="atos.audit.appender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>log/audit/md-sistar-audit.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>log/audit/md-sistar-audit.log-%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>5</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} ${hostname} [CorrelationID: %X{activityid}] [Username: %X{uact}] %-5level - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="atos.trace" level="INFO">
+        <appender-ref ref="atos.trace.appender"/>
+    </logger>
+
+    <logger name="atos.audit" level="ERROR">
+        <appender-ref ref="atos.audit.appender"/>
+    </logger>
+
+    <logger name="org.springframework.ws.client.MessageTracing" level="TRACE">
+        <appender-ref ref="stdout.file"/>
+    </logger>
+    <logger name="org.springframework.ws.server.MessageTracing" level="TRACE">
+        <appender-ref ref="stdout.file"/>
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="stdout.file"/>
+    </root>
+</configuration>

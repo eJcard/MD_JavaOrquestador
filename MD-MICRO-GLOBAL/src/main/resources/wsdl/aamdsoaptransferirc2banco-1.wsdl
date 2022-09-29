@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="amdSoapTransferirC2Banco" targetNamespace="ApiMidinero" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="ApiMidinero" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdlns="ApiMidinero" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="ApiMidinero" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">
+			<complexType name="SDTResultadoEstado">
+				<sequence>
+					<element name="ResultadoEstado" type="xsd:short">
+					</element>
+					<element name="ResultadoCobranzaId" type="xsd:long">
+					</element>
+					<element name="ResultadoTimeStamp" nillable="true" type="xsd:dateTime">
+					</element>
+					<element name="ResultadoMensaje" type="xsd:string">
+					</element>
+					<element name="ResultadoErrorCodigo" type="xsd:string">
+					</element>
+					<element name="ResultadoErroCodigoSecuencia" type="xsd:short">
+					</element>
+					<element name="ResultadoNivel" type="xsd:short">
+					</element>
+					<element name="ResultadoMensajeProgramador" type="xsd:string">
+					</element>
+					<element name="ResultadoProgramaOrigen" type="xsd:string">
+					</element>
+				</sequence>
+			</complexType>
+			<element name="amdSoapTransferirC2Banco.Execute">
+				<complexType>
+					<sequence>
+						<element maxOccurs="1" minOccurs="1" name="Cuentaorigen" type="xsd:long"/>
+						<element maxOccurs="1" minOccurs="1" name="Bancodestino" type="xsd:short"/>
+						<element maxOccurs="1" minOccurs="1" name="Sucursalbancodestino" type="xsd:short"/>
+						<element maxOccurs="1" minOccurs="1" name="Cuentabancodestino" type="xsd:string"/>
+						<element maxOccurs="1" minOccurs="1" name="Nombrepersonabancodestino" type="xsd:string"/>
+						<element maxOccurs="1" minOccurs="1" name="Monto" type="xsd:double"/>
+						<element maxOccurs="1" minOccurs="1" name="Moneda" type="xsd:short"/>
+						<element maxOccurs="1" minOccurs="1" name="Concepto" type="xsd:string"/>
+						<element maxOccurs="1" minOccurs="1" name="Referencia" type="xsd:string"/>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="amdSoapTransferirC2Banco.ExecuteResponse">
+				<complexType>
+					<sequence>
+						<element maxOccurs="1" minOccurs="1" name="Response" type="tns:SDTResultadoEstado"/>
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+  </types>
+  <message name="amdSoapTransferirC2Banco.ExecuteSoapOut">
+    <part name="parameters" element="tns:amdSoapTransferirC2Banco.ExecuteResponse">
+    </part>
+  </message>
+  <message name="amdSoapTransferirC2Banco.ExecuteSoapIn">
+    <part name="parameters" element="tns:amdSoapTransferirC2Banco.Execute">
+    </part>
+  </message>
+  <portType name="amdSoapTransferirC2BancoSoapPort">
+    <operation name="Execute">
+      <input message="tns:amdSoapTransferirC2Banco.ExecuteSoapIn">
+    </input>
+      <output message="tns:amdSoapTransferirC2Banco.ExecuteSoapOut">
+    </output>
+    </operation>
+  </portType>
+  <binding name="amdSoapTransferirC2BancoSoapBinding" type="tns:amdSoapTransferirC2BancoSoapPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Execute">
+      <soap:operation soapAction="ApiMidineroaction/AAMDSOAPTRANSFERIRC2BANCO.Execute"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="amdSoapTransferirC2Banco">
+    <port name="amdSoapTransferirC2BancoSoapPort" binding="tns:amdSoapTransferirC2BancoSoapBinding">
+      <soap:address location="http://uat-ngws:8080/UATApiMidineroGP/servlet/aamdsoaptransferirc2banco"/>
+    </port>
+  </service>
+</definitions>

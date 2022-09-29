@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions name="amdSoapRecargarGP" targetNamespace="ApiMidinero" xmlns:wsdlns="ApiMidinero" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="ApiMidinero">
+	<types>
+		<schema targetNamespace="ApiMidinero" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" elementFormDefault="qualified">
+			<complexType name="sdtCamposValor">
+				<sequence>
+					<element minOccurs="0" maxOccurs="unbounded" name="sdtCamposValor.CampoValorItem" type="tns:sdtCamposValor.CampoValorItem">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="sdtCamposValor.CampoValorItem">
+				<sequence>
+					<element name="CampoId" type="xsd:long">
+					</element>
+					<element name="CampoNombre" type="xsd:string">
+					</element>
+					<element name="CampoValor" type="xsd:string">
+					</element>
+					<element name="CampoClase" type="xsd:string">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="SDTResultadoEstado">
+				<sequence>
+					<element name="ResultadoEstado" type="xsd:short">
+					</element>
+					<element name="ResultadoCobranzaId" type="xsd:long">
+					</element>
+					<element name="ResultadoTimeStamp" type="xsd:dateTime" nillable="true">
+					</element>
+					<element name="ResultadoMensaje" type="xsd:string">
+					</element>
+					<element name="ResultadoErrorCodigo" type="xsd:string">
+					</element>
+					<element name="ResultadoErroCodigoSecuencia" type="xsd:short">
+					</element>
+					<element name="ResultadoNivel" type="xsd:short">
+					</element>
+					<element name="ResultadoMensajeProgramador" type="xsd:string">
+					</element>
+					<element name="ResultadoProgramaOrigen" type="xsd:string">
+					</element>
+				</sequence>
+			</complexType>
+			<element name="amdSoapRecargarGP.Execute">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Cuentanumero" type="xsd:long"/>
+						<element minOccurs="1" maxOccurs="1" name="Moneda" type="xsd:short"/>
+						<element minOccurs="1" maxOccurs="1" name="Monto" type="xsd:double"/>
+						<element minOccurs="1" maxOccurs="1" name="Origen" type="xsd:int"/>
+						<element minOccurs="1" maxOccurs="1" name="Observaciones" type="xsd:string"/>
+						<element minOccurs="1" maxOccurs="1" name="Nrocomprobante" type="xsd:long"/>
+						<element minOccurs="1" maxOccurs="1" name="Sdtcamposvalor" type="tns:sdtCamposValor"/>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="amdSoapRecargarGP.ExecuteResponse">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Response" type="tns:SDTResultadoEstado"/>
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+	</types>
+	<message name="amdSoapRecargarGP.ExecuteSoapIn">
+		<part name="parameters" element="tns:amdSoapRecargarGP.Execute"/>
+	</message>
+	<message name="amdSoapRecargarGP.ExecuteSoapOut">
+		<part name="parameters" element="tns:amdSoapRecargarGP.ExecuteResponse"/>
+	</message>
+	<portType name="amdSoapRecargarGPSoapPort">
+		<operation name="Execute">
+			<input message="wsdlns:amdSoapRecargarGP.ExecuteSoapIn"/>
+			<output message="wsdlns:amdSoapRecargarGP.ExecuteSoapOut"/>
+		</operation>
+	</portType>
+	<binding name="amdSoapRecargarGPSoapBinding" type="wsdlns:amdSoapRecargarGPSoapPort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="Execute">
+			<soap:operation soapAction="ApiMidineroaction/AAMDSOAPRECARGARGP.Execute"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="amdSoapRecargarGP">
+		<port name="amdSoapRecargarGPSoapPort" binding="wsdlns:amdSoapRecargarGPSoapBinding">
+			<soap:address location="http://192.168.70.19:8080/UATApiMidineroGP/servlet/aamdsoaprecargargp"/>
+		</port>
+	</service>
+</definitions>

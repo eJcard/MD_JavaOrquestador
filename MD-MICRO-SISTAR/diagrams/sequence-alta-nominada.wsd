@@ -1,0 +1,41 @@
+@startuml Alta nominada
+  participant "WSO2 - EI" as EI
+  box "Microservicio Spring Boot" #LightGray
+    participant Controller<<@RestController>>
+    participant Service order 10
+    participant ProcessorClient order 20
+    participant ModelMapper order 30
+  end box
+  participant Processor order 40
+
+  EI -> Controller: RESTful request
+  Controller -> Service: enviaSolicitud(requestDto)
+  note over ModelMapper
+    Los parametros necesarios para el mapeo son obtenidos
+    de un servidor de configuracion e inyectados al iniciar la ejecucion
+    del service agent.
+  end note
+  Service -> ModelMapper: requestSoap = modelMapper.map(requestDto)
+  ModelMapper --> Service: resultado del mapeo
+  note over Service
+    Se genera id de referencia
+    si es mandatorio y no es provisto 
+  end note
+  opt
+    Service -> Service: generacion de id de transaccion (timestamp unix)
+  end
+
+  Service -> ProcessorClient: enviaSolicitud(requestSoap)
+  ProcessorClient -> Processor: envia request HTTP (SOAP)
+  ...
+  Processor --> ProcessorClient: response (SOAP)
+  ProcessorClient --> Service: response
+
+  opt 200 OK  
+    Service -> ModelMapper: modelMapper.map(responseSoap)
+  end
+
+  Service -> Service: crea la respuesta de acuerdo\n al resultado del request
+  Service --> Controller: response
+  Controller --> EI: response (RESTful)
+@enduml

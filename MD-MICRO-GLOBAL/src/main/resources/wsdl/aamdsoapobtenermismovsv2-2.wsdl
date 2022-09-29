@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="amdSoapObtenerMisMovimientosV2" targetNamespace="ApiMidinero" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="ApiMidinero" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdlns="ApiMidinero" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="ApiMidinero" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">
+			<complexType name="ArrayOfMovimientoV2">
+				<sequence>
+					<element maxOccurs="unbounded" minOccurs="0" name="MovimientoV2" type="tns:MovimientoV2">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="MovimientoV2">
+				<sequence>
+					<element name="Fecha" nillable="true" type="xsd:date">
+					</element>
+					<element name="MovimientoTipoCodigo" type="xsd:short">
+					</element>
+					<element name="MovimientoTipoNombre" type="xsd:string">
+					</element>
+					<element name="Descripcion" type="xsd:string">
+					</element>
+					<element name="Comercio" type="xsd:string">
+					</element>
+					<element name="MCC" type="xsd:string">
+					</element>
+					<element name="Estado" type="xsd:string">
+					</element>
+					<element name="Importe" type="tns:Importe">
+					</element>
+					<element name="ImporteOrigen" type="tns:Importe">
+					</element>
+					<element name="MovimientoID" type="xsd:long">
+					</element>
+					<element name="MovimientoFechaHora" nillable="true" type="xsd:dateTime">
+					</element>
+					<element name="MovimientoConversionMD" type="xsd:double">
+					</element>
+					<element name="MovimientoCupon" type="xsd:long">
+					</element>
+					<element name="CodigoConfirmacion" type="xsd:long">
+					</element>
+					<element name="NumeroComprobante" type="xsd:long">
+					</element>
+					<element name="DescripcionActividad" type="xsd:string">
+					</element>
+					<element name="ConceptoTipo" type="xsd:string">
+					</element>
+					<element name="ConceptoCodigo" type="xsd:string">
+					</element>
+					<element name="CiudadComercio" type="xsd:string">
+					</element>
+					<element name="PaisComercio" type="xsd:string">
+					</element>
+					<element name="RubroDescripcion" type="xsd:string">
+					</element>
+					<element name="ListaCampos" type="xsd:string">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="Importe">
+				<sequence>
+					<element name="Moneda" type="tns:Moneda">
+					</element>
+					<element name="Monto" type="xsd:double">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="Moneda">
+				<sequence>
+					<element name="MonedaCodigo" type="xsd:int">
+					</element>
+					<element name="Simbolo" type="xsd:string">
+					</element>
+					<element name="Descripcion" type="xsd:string">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="Paginado">
+				<sequence>
+					<element name="PaginaActual" type="xsd:int">
+					</element>
+					<element name="CantidadPaginas" type="xsd:int">
+					</element>
+					<element name="TamanioPagina" type="xsd:int">
+					</element>
+					<element name="CantidadRegistros" type="xsd:int">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="SDTResultadoEstado">
+				<sequence>
+					<element name="ResultadoEstado" type="xsd:short">
+					</element>
+					<element name="ResultadoCobranzaId" type="xsd:long">
+					</element>
+					<element name="ResultadoTimeStamp" nillable="true" type="xsd:dateTime">
+					</element>
+					<element name="ResultadoMensaje" type="xsd:string">
+					</element>
+					<element name="ResultadoErrorCodigo" type="xsd:string">
+					</element>
+					<element name="ResultadoErroCodigoSecuencia" type="xsd:short">
+					</element>
+					<element name="ResultadoNivel" type="xsd:short">
+					</element>
+					<element name="ResultadoMensajeProgramador" type="xsd:string">
+					</element>
+					<element name="ResultadoProgramaOrigen" type="xsd:string">
+					</element>
+				</sequence>
+			</complexType>
+			<element name="amdSoapObtenerMisMovimientosV2.Execute">
+				<complexType>
+					<sequence>
+						<element maxOccurs="1" minOccurs="1" name="Cuentanumero" type="xsd:long"/>
+						<element maxOccurs="1" minOccurs="1" name="Tipomovimiento" type="xsd:short"/>
+						<element maxOccurs="1" minOccurs="1" name="Fechadesde" type="xsd:date"/>
+						<element maxOccurs="1" minOccurs="1" name="Fechahasta" type="xsd:date"/>
+						<element maxOccurs="1" minOccurs="1" name="Paginaid" type="xsd:int"/>
+						<element maxOccurs="1" minOccurs="1" name="Paginatam" type="xsd:short"/>
+						<element maxOccurs="1" minOccurs="1" name="Filtromoneda" type="xsd:int"/>
+						<element maxOccurs="1" minOccurs="1" name="Filtrodescripcion" type="xsd:string"/>
+						<element maxOccurs="1" minOccurs="1" name="Filtromcc" type="xsd:string"/>
+						<element maxOccurs="1" minOccurs="1" name="Filtromontodesde" type="xsd:long"/>
+						<element maxOccurs="1" minOccurs="1" name="Filtromontohasta" type="xsd:long"/>
+						<element maxOccurs="1" minOccurs="1" name="Filtrocomercio" type="xsd:string"/>
+						<element maxOccurs="1" minOccurs="1" name="Filtrocuentadestino" type="xsd:long"/>
+						<element maxOccurs="1" minOccurs="1" name="Otrosfiltros" type="xsd:string"/>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="amdSoapObtenerMisMovimientosV2.ExecuteResponse">
+				<complexType>
+					<sequence>
+						<element maxOccurs="1" minOccurs="1" name="Movimientos" type="tns:ArrayOfMovimientoV2"/>
+						<element maxOccurs="1" minOccurs="1" name="Paginado" type="tns:Paginado"/>
+						<element maxOccurs="1" minOccurs="1" name="Response" type="tns:SDTResultadoEstado"/>
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+  </types>
+  <message name="amdSoapObtenerMisMovimientosV2.ExecuteSoapOut">
+    <part name="parameters" element="tns:amdSoapObtenerMisMovimientosV2.ExecuteResponse">
+    </part>
+  </message>
+  <message name="amdSoapObtenerMisMovimientosV2.ExecuteSoapIn">
+    <part name="parameters" element="tns:amdSoapObtenerMisMovimientosV2.Execute">
+    </part>
+  </message>
+  <portType name="amdSoapObtenerMisMovimientosV2SoapPort">
+    <operation name="Execute">
+      <input message="tns:amdSoapObtenerMisMovimientosV2.ExecuteSoapIn">
+    </input>
+      <output message="tns:amdSoapObtenerMisMovimientosV2.ExecuteSoapOut">
+    </output>
+    </operation>
+  </portType>
+  <binding name="amdSoapObtenerMisMovimientosV2SoapBinding" type="tns:amdSoapObtenerMisMovimientosV2SoapPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Execute">
+      <soap:operation soapAction="ApiMidineroaction/AAMDSOAPOBTENERMISMOVIMIENTOSV2.Execute"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="amdSoapObtenerMisMovimientosV2">
+    <port name="amdSoapObtenerMisMovimientosV2SoapPort" binding="tns:amdSoapObtenerMisMovimientosV2SoapBinding">
+      <soap:address location="http://uat-ngws:8080/UATApiMidineroGP/servlet/aamdsoapobtenermismovimientosv2"/>
+    </port>
+  </service>
+</definitions>

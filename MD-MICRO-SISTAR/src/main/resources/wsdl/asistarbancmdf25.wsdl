@@ -1,0 +1,447 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!--suppress ALL -->
+<definitions name="SistarbancMDF25" targetNamespace="ConsultasVISAWeb"
+	xmlns:wsdlns="ConsultasVISAWeb"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:tns="ConsultasVISAWeb"
+	xmlns:tns1="BOT2">
+	<types>
+		<schema targetNamespace="ConsultasVISAWeb"
+			xmlns="http://www.w3.org/2001/XMLSchema"
+			xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" elementFormDefault="qualified">
+			<import namespace="BOT2" />
+			<complexType name="ArrayOfTarjetDTO">
+				<sequence>
+					<element minOccurs="0" maxOccurs="unbounded" name="TarjetDTO" type="tns:TarjetDTO">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="TarjetDTO">
+				<sequence>
+					<element name="Cardnumber" type="xsd:string">
+					</element>
+					<element name="Duedate" type="xsd:string">
+					</element>
+					<element name="Cardstatuscode" type="xsd:byte">
+					</element>
+					<element name="Estado" type="xsd:string">
+					</element>
+					<element name="DocumentCountry" type="xsd:string">
+					</element>
+					<element name="DocumentType" type="xsd:string">
+					</element>
+					<element name="DocumentNumber" type="xsd:string">
+					</element>
+					<element name="RenovAutom" type="xsd:string">
+					</element>
+					<element name="PreId" type="xsd:string">
+					</element>
+					<element name="Name1" type="xsd:string">
+					</element>
+					<element name="Name2" type="xsd:string">
+					</element>
+					<element name="LastName1" type="xsd:string">
+					</element>
+					<element name="LastName2" type="xsd:string">
+					</element>
+					<element name="Nationality" type="xsd:string">
+					</element>
+					<element name="Birthdate" type="xsd:string">
+					</element>
+					<element name="Email" type="xsd:string">
+					</element>
+					<element name="Gender" type="xsd:string">
+					</element>
+					<element name="CivilStatus" type="xsd:string">
+					</element>
+					<element name="PhoneNumber" type="xsd:string">
+					</element>
+					<element name="OperaPorTerceros" type="xsd:string">
+					</element>
+					<element name="TipoProducto" type="xsd:string">
+					</element>
+					<element name="TipoProductoDescri" type="xsd:string">
+					</element>
+					<element name="Marca" type="xsd:string">
+					</element>
+					<element name="Emisor" type="xsd:string">
+					</element>
+					<element name="AfinityGroupName" type="xsd:string">
+					</element>
+					<element name="SucursalEmisora" type="xsd:string">
+					</element>
+					<element name="Transactionmaskedpan" type="xsd:string">
+					</element>
+					<element name="Transactionbin" type="xsd:string">
+					</element>
+				</sequence>
+			</complexType>
+			<element name="SistarbancMDF25.ECHOTEST">
+				<complexType>
+					<sequence>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDF25.ECHOTESTResponse">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Result" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDF25.STATUSCUENTATARJETAS">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Usuariows" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Passws" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Externalaccountnumber" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDF25.STATUSCUENTATARJETASResponse">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Externalaccountnumber" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Coderror" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Reason" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Statuscode" type="xsd:byte" />
+						<element minOccurs="1" maxOccurs="1" name="Afinitygroupcode" type="xsd:int" />
+						<element minOccurs="1" maxOccurs="1" name="Cards" type="tns:ArrayOfTarjetDTO" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDF25.NORENOVACIONAUTOMATICA">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Usuariows" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Passws" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Cardnumber" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDF25.NORENOVACIONAUTOMATICAResponse">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Coderror" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Reason" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDF25.CAMBIOGRUPOAFINIDAD">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Usuariows" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Passws" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Externalaccountnumber" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Afinitygroupcode" type="xsd:int" />
+						<element minOccurs="1" maxOccurs="1" name="Imprimeplastico" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDF25.CAMBIOGRUPOAFINIDADResponse">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Coderror" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Reason" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Cards" type="tns:ArrayOfTarjetDTO" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDF25.RENOVACIONANTICIPADA">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Usuariows" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Passws" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Cardnumber" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Externalaccountnumber" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDF25.RENOVACIONANTICIPADAResponse">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Coderror" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Reason" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Newcardnumber" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Duedate" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Transactionmaskedpan" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Transactionbin" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDF25.SOLICITUDPIN">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Usuariows" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Passws" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Cardnumber" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDF25.SOLICITUDPINResponse">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Coderror" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Reason" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDF25.CAMBIOCICLO">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Usuariows" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Passws" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Usuario" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Usuariosuc" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Externalaccountnumber" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Nuevociclo" type="xsd:short" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDF25.CAMBIOCICLOResponse">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Externalaccountnumber" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Coderror" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Reason" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDF25.AVISODEVIAJE">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Usuariows" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Passws" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Usuario" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Documento" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Fechadesde" type="xsd:date" />
+						<element minOccurs="1" maxOccurs="1" name="Fechahasta" type="xsd:date" />
+						<element minOccurs="1" maxOccurs="1" name="Avisoviaje" type="tns1:inCargoViaje" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDF25.AVISODEVIAJEResponse">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Coderror" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Reason" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Idaviso" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+		<schema targetNamespace="BOT2"
+			xmlns="http://www.w3.org/2001/XMLSchema"
+			xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" elementFormDefault="qualified">
+			<import namespace="ConsultasVISAWeb" />
+			<complexType name="inCargoViaje">
+				<sequence>
+					<element name="TarjetasViaje" type="tns1:AvisoViaje.TarjetasViaje">
+					</element>
+					<element name="Paises" type="tns1:AvisoViaje.Paises">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="AvisoViaje.TarjetasViaje">
+				<sequence>
+					<element minOccurs="0" maxOccurs="unbounded" name="TarjetasItem" type="tns1:inCargoViaje.TarjetasItem">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="AvisoViaje.Paises">
+				<sequence>
+					<element minOccurs="0" maxOccurs="unbounded" name="PaisesItem" type="tns1:inCargoViaje.PaisesItem">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="ArrayOfinCargoViaje.TarjetasItem">
+				<sequence>
+					<element minOccurs="0" maxOccurs="unbounded" name="inCargoViaje.TarjetasItem" type="tns1:inCargoViaje.TarjetasItem">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="inCargoViaje.TarjetasItem">
+				<sequence>
+					<element name="IDTarjeta" type="xsd:string">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="ArrayOfinCargoViaje.PaisesItem">
+				<sequence>
+					<element minOccurs="0" maxOccurs="unbounded" name="inCargoViaje.PaisesItem" type="tns1:inCargoViaje.PaisesItem">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="inCargoViaje.PaisesItem">
+				<sequence>
+					<element name="NombrePais" type="xsd:string">
+					</element>
+				</sequence>
+			</complexType>
+		</schema>
+	</types>
+	<message name="SistarbancMDF25.ECHOTESTSoapIn">
+		<part name="parameters" element="tns:SistarbancMDF25.ECHOTEST" />
+	</message>
+	<message name="SistarbancMDF25.ECHOTESTSoapOut">
+		<part name="parameters" element="tns:SistarbancMDF25.ECHOTESTResponse" />
+	</message>
+	<message name="SistarbancMDF25.STATUSCUENTATARJETASSoapIn">
+		<part name="parameters" element="tns:SistarbancMDF25.STATUSCUENTATARJETAS" />
+	</message>
+	<message name="SistarbancMDF25.STATUSCUENTATARJETASSoapOut">
+		<part name="parameters" element="tns:SistarbancMDF25.STATUSCUENTATARJETASResponse" />
+	</message>
+	<message name="SistarbancMDF25.NORENOVACIONAUTOMATICASoapIn">
+		<part name="parameters" element="tns:SistarbancMDF25.NORENOVACIONAUTOMATICA" />
+	</message>
+	<message name="SistarbancMDF25.NORENOVACIONAUTOMATICASoapOut">
+		<part name="parameters" element="tns:SistarbancMDF25.NORENOVACIONAUTOMATICAResponse" />
+	</message>
+	<message name="SistarbancMDF25.CAMBIOGRUPOAFINIDADSoapIn">
+		<part name="parameters" element="tns:SistarbancMDF25.CAMBIOGRUPOAFINIDAD" />
+	</message>
+	<message name="SistarbancMDF25.CAMBIOGRUPOAFINIDADSoapOut">
+		<part name="parameters" element="tns:SistarbancMDF25.CAMBIOGRUPOAFINIDADResponse" />
+	</message>
+	<message name="SistarbancMDF25.RENOVACIONANTICIPADASoapIn">
+		<part name="parameters" element="tns:SistarbancMDF25.RENOVACIONANTICIPADA" />
+	</message>
+	<message name="SistarbancMDF25.RENOVACIONANTICIPADASoapOut">
+		<part name="parameters" element="tns:SistarbancMDF25.RENOVACIONANTICIPADAResponse" />
+	</message>
+	<message name="SistarbancMDF25.SOLICITUDPINSoapIn">
+		<part name="parameters" element="tns:SistarbancMDF25.SOLICITUDPIN" />
+	</message>
+	<message name="SistarbancMDF25.SOLICITUDPINSoapOut">
+		<part name="parameters" element="tns:SistarbancMDF25.SOLICITUDPINResponse" />
+	</message>
+	<message name="SistarbancMDF25.CAMBIOCICLOSoapIn">
+		<part name="parameters" element="tns:SistarbancMDF25.CAMBIOCICLO" />
+	</message>
+	<message name="SistarbancMDF25.CAMBIOCICLOSoapOut">
+		<part name="parameters" element="tns:SistarbancMDF25.CAMBIOCICLOResponse" />
+	</message>
+	<message name="SistarbancMDF25.AVISODEVIAJESoapIn">
+		<part name="parameters" element="tns:SistarbancMDF25.AVISODEVIAJE" />
+	</message>
+	<message name="SistarbancMDF25.AVISODEVIAJESoapOut">
+		<part name="parameters" element="tns:SistarbancMDF25.AVISODEVIAJEResponse" />
+	</message>
+	<portType name="SistarbancMDF25SoapPort">
+		<operation name="ECHOTEST">
+			<input message="wsdlns:SistarbancMDF25.ECHOTESTSoapIn" />
+			<output message="wsdlns:SistarbancMDF25.ECHOTESTSoapOut" />
+		</operation>
+		<operation name="STATUSCUENTATARJETAS">
+			<input message="wsdlns:SistarbancMDF25.STATUSCUENTATARJETASSoapIn" />
+			<output message="wsdlns:SistarbancMDF25.STATUSCUENTATARJETASSoapOut" />
+		</operation>
+		<operation name="NORENOVACIONAUTOMATICA">
+			<input message="wsdlns:SistarbancMDF25.NORENOVACIONAUTOMATICASoapIn" />
+			<output message="wsdlns:SistarbancMDF25.NORENOVACIONAUTOMATICASoapOut" />
+		</operation>
+		<operation name="CAMBIOGRUPOAFINIDAD">
+			<input message="wsdlns:SistarbancMDF25.CAMBIOGRUPOAFINIDADSoapIn" />
+			<output message="wsdlns:SistarbancMDF25.CAMBIOGRUPOAFINIDADSoapOut" />
+		</operation>
+		<operation name="RENOVACIONANTICIPADA">
+			<input message="wsdlns:SistarbancMDF25.RENOVACIONANTICIPADASoapIn" />
+			<output message="wsdlns:SistarbancMDF25.RENOVACIONANTICIPADASoapOut" />
+		</operation>
+		<operation name="SOLICITUDPIN">
+			<input message="wsdlns:SistarbancMDF25.SOLICITUDPINSoapIn" />
+			<output message="wsdlns:SistarbancMDF25.SOLICITUDPINSoapOut" />
+		</operation>
+		<operation name="CAMBIOCICLO">
+			<input message="wsdlns:SistarbancMDF25.CAMBIOCICLOSoapIn" />
+			<output message="wsdlns:SistarbancMDF25.CAMBIOCICLOSoapOut" />
+		</operation>
+		<operation name="AVISODEVIAJE">
+			<input message="wsdlns:SistarbancMDF25.AVISODEVIAJESoapIn" />
+			<output message="wsdlns:SistarbancMDF25.AVISODEVIAJESoapOut" />
+		</operation>
+	</portType>
+	<binding name="SistarbancMDF25SoapBinding" type="wsdlns:SistarbancMDF25SoapPort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<operation name="ECHOTEST">
+			<soap:operation soapAction="ConsultasVISAWebaction/ASISTARBANCMDF25.ECHOTEST" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="STATUSCUENTATARJETAS">
+			<soap:operation soapAction="ConsultasVISAWebaction/ASISTARBANCMDF25.STATUSCUENTATARJETAS" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="NORENOVACIONAUTOMATICA">
+			<soap:operation soapAction="ConsultasVISAWebaction/ASISTARBANCMDF25.NORENOVACIONAUTOMATICA" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="CAMBIOGRUPOAFINIDAD">
+			<soap:operation soapAction="ConsultasVISAWebaction/ASISTARBANCMDF25.CAMBIOGRUPOAFINIDAD" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="RENOVACIONANTICIPADA">
+			<soap:operation soapAction="ConsultasVISAWebaction/ASISTARBANCMDF25.RENOVACIONANTICIPADA" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="SOLICITUDPIN">
+			<soap:operation soapAction="ConsultasVISAWebaction/ASISTARBANCMDF25.SOLICITUDPIN" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="CAMBIOCICLO">
+			<soap:operation soapAction="ConsultasVISAWebaction/ASISTARBANCMDF25.CAMBIOCICLO" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="AVISODEVIAJE">
+			<soap:operation soapAction="ConsultasVISAWebaction/ASISTARBANCMDF25.AVISODEVIAJE" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+	</binding>
+	<service name="SistarbancMDF25">
+		<port name="SistarbancMDF25SoapPort" binding="wsdlns:SistarbancMDF25SoapBinding">
+			<soap:address location="https://172.31.154.10:4445/WSMidineroTest/asistarbancmdf25.aspx" />
+		</port>
+	</service>
+</definitions>

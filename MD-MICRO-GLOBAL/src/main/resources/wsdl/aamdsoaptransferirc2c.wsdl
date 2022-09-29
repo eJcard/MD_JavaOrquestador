@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions name="amdSoapTransferirC2C" targetNamespace="ApiMidinero" xmlns:wsdlns="ApiMidinero" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="ApiMidinero">
+	<types>
+		<schema targetNamespace="ApiMidinero" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" elementFormDefault="qualified">
+			<complexType name="SDTResultadoEstado">
+				<sequence>
+					<element name="ResultadoEstado" type="xsd:short">
+					</element>
+					<element name="ResultadoCobranzaId" type="xsd:long">
+					</element>
+					<element name="ResultadoTimeStamp" type="xsd:dateTime" nillable="true">
+					</element>
+					<element name="ResultadoMensaje" type="xsd:string">
+					</element>
+					<element name="ResultadoErrorCodigo" type="xsd:string">
+					</element>
+					<element name="ResultadoErroCodigoSecuencia" type="xsd:short">
+					</element>
+					<element name="ResultadoNivel" type="xsd:short">
+					</element>
+					<element name="ResultadoMensajeProgramador" type="xsd:string">
+					</element>
+					<element name="ResultadoProgramaOrigen" type="xsd:string">
+					</element>
+				</sequence>
+			</complexType>
+			<element name="amdSoapTransferirC2C.Execute">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Cuentaorigen" type="xsd:long"/>
+						<element minOccurs="1" maxOccurs="1" name="Cuentadestino" type="xsd:long"/>
+						<element minOccurs="1" maxOccurs="1" name="Monto" type="xsd:double"/>
+						<element minOccurs="1" maxOccurs="1" name="Moneda" type="xsd:short"/>
+						<element minOccurs="1" maxOccurs="1" name="Concepto" type="xsd:string"/>
+						<element minOccurs="1" maxOccurs="1" name="Referencia" type="xsd:string"/>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="amdSoapTransferirC2C.ExecuteResponse">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Response" type="tns:SDTResultadoEstado"/>
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+	</types>
+	<message name="amdSoapTransferirC2C.ExecuteSoapIn">
+		<part name="parameters" element="tns:amdSoapTransferirC2C.Execute"/>
+	</message>
+	<message name="amdSoapTransferirC2C.ExecuteSoapOut">
+		<part name="parameters" element="tns:amdSoapTransferirC2C.ExecuteResponse"/>
+	</message>
+	<portType name="amdSoapTransferirC2CSoapPort">
+		<operation name="Execute">
+			<input message="wsdlns:amdSoapTransferirC2C.ExecuteSoapIn"/>
+			<output message="wsdlns:amdSoapTransferirC2C.ExecuteSoapOut"/>
+		</operation>
+	</portType>
+	<binding name="amdSoapTransferirC2CSoapBinding" type="wsdlns:amdSoapTransferirC2CSoapPort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="Execute">
+			<soap:operation soapAction="ApiMidineroaction/AAMDSOAPTRANSFERIRC2C.Execute"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="amdSoapTransferirC2C">
+		<port name="amdSoapTransferirC2CSoapPort" binding="wsdlns:amdSoapTransferirC2CSoapBinding">
+			<soap:address location="http://uat-ngws:8080/UATApiMidineroGP/servlet/aamdsoaptransferirc2c"/>
+		</port>
+	</service>
+</definitions>

@@ -1,0 +1,401 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!--suppress ALL -->
+<definitions name="SistarbancMDF2" targetNamespace="ConsultasVISAWeb"
+	xmlns:wsdlns="ConsultasVISAWeb"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:tns="ConsultasVISAWeb">
+	<types>
+		<schema targetNamespace="ConsultasVISAWeb"
+			xmlns="http://www.w3.org/2001/XMLSchema"
+			xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" elementFormDefault="qualified">
+			<complexType name="AccountDTO">
+				<sequence>
+					<element name="PrincipalCustomer" type="tns:ArrayOfCustomerDTO">
+					</element>
+					<element name="SecondaryResponsive" type="tns:CustomerDTO">
+					</element>
+					<element name="BrandCode" type="xsd:string">
+					</element>
+					<element name="BcoId" type="xsd:string">
+					</element>
+					<element name="Paiid" type="xsd:string">
+					</element>
+					<element name="DocumentTypeT" type="xsd:string">
+					</element>
+					<element name="DocumentNumberT" type="xsd:string">
+					</element>
+					<element name="CtaTpo" type="xsd:string">
+					</element>
+					<element name="Empresa" type="tns:EmpresDto">
+					</element>
+					<element name="ActId" type="xsd:string">
+					</element>
+					<element name="CodActId" type="xsd:string">
+					</element>
+					<element name="CtaBcoSuc" type="xsd:string">
+					</element>
+					<element name="CtaBcoSucAdm" type="xsd:string">
+					</element>
+					<element name="CtaBcoSuc2" type="xsd:string">
+					</element>
+					<element name="CtaCicId" type="xsd:string">
+					</element>
+					<element name="CtaCraId" type="xsd:string">
+					</element>
+					<element name="EnvId" type="xsd:string">
+					</element>
+					<element name="CtaCliCreMd" type="xsd:string">
+					</element>
+					<element name="CliCrelim" type="xsd:double">
+					</element>
+					<element name="DebId" type="xsd:string">
+					</element>
+					<element name="CtaDeb" type="xsd:string">
+					</element>
+					<element name="EnvioECXMail" type="xsd:string">
+					</element>
+					<element name="EmailParaEC" type="xsd:string">
+					</element>
+					<element name="IdCorresponsal" type="xsd:string">
+					</element>
+					<element name="AgenciaCorresp" type="xsd:string">
+					</element>
+					<element name="LotePS" type="xsd:string">
+					</element>
+					<element name="IdCamp" type="xsd:string">
+					</element>
+					<element name="OperaPorTerceros" type="xsd:string">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="ArrayOfCustomerDTO">
+				<sequence>
+					<element minOccurs="0" maxOccurs="unbounded" name="CustomerDTO" type="tns:CustomerDTO">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="CustomerDTO">
+				<sequence>
+					<element name="TrjRel" type="xsd:string">
+					</element>
+					<element name="Apellido" type="xsd:string">
+					</element>
+					<element name="Apellido2" type="xsd:string">
+					</element>
+					<element name="Nombre" type="xsd:string">
+					</element>
+					<element name="Nombre2" type="xsd:string">
+					</element>
+					<element name="Birthday" type="xsd:string">
+					</element>
+					<element name="CodSex" type="xsd:string">
+					</element>
+					<element name="PaIdNacCustomer" type="xsd:string">
+					</element>
+					<element name="PaIdDocCustomer" type="xsd:string">
+					</element>
+					<element name="DocumentType" type="xsd:string">
+					</element>
+					<element name="DocumentNumber" type="xsd:string">
+					</element>
+					<element name="PhisicalAddress" type="tns:AddressDTO">
+					</element>
+					<element name="MailingAddress" type="tns:AddressDTO">
+					</element>
+					<element name="eMail" type="xsd:string">
+					</element>
+					<element name="CellNumber" type="xsd:string">
+					</element>
+					<element name="PhoneNumber" type="xsd:string">
+					</element>
+					<element name="Rut" type="xsd:string">
+					</element>
+					<element name="Bps" type="xsd:string">
+					</element>
+					<element name="Dgi" type="xsd:string">
+					</element>
+					<element name="CivId" type="xsd:string">
+					</element>
+					<element name="Ocupacion" type="xsd:string">
+					</element>
+					<element name="NombreEmbozado" type="xsd:string">
+					</element>
+					<element name="CorreSeleccodi" type="xsd:string">
+					</element>
+					<element name="CorreSeleccodiPlasti" type="xsd:string">
+					</element>
+					<element name="Parentesco" type="xsd:string">
+					</element>
+					<element name="Product" type="tns:ProductDTO">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="EmpresDto">
+				<sequence>
+					<element name="EmpId" type="xsd:int">
+					</element>
+					<element name="ActidEmp" type="xsd:string">
+					</element>
+					<element name="DirEmpresa" type="tns:AddressDTO">
+					</element>
+					<element name="RutEmpresa" type="xsd:string">
+					</element>
+					<element name="NomEmp" type="xsd:string">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="AddressDTO">
+				<sequence>
+					<element name="CountryCode" type="xsd:string">
+					</element>
+					<element name="GeoStateCode" type="xsd:string">
+					</element>
+					<element name="CityCode" type="xsd:string">
+					</element>
+					<element name="Address" type="xsd:string">
+					</element>
+					<element name="ZipCode" type="xsd:string">
+					</element>
+					<element name="Residente" type="xsd:string">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="ProductDTO">
+				<sequence>
+					<element name="BrandCode" type="xsd:string">
+					</element>
+					<element name="ProductCode" type="xsd:byte">
+					</element>
+					<element name="AfinityGroupCode" type="xsd:short">
+					</element>
+					<element name="CreditLimitPorce" type="xsd:short">
+					</element>
+					<element name="PreId" type="xsd:string">
+					</element>
+					<element name="FchIniVig" type="xsd:string">
+					</element>
+					<element name="Trjbin" type="xsd:string">
+					</element>
+					<element name="Trjfchvt" type="xsd:string">
+					</element>
+					<element name="Cardnumber" type="xsd:string">
+					</element>
+					<element name="RenovAutom" type="xsd:string">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="ArrayOfCardDTO">
+				<sequence>
+					<element minOccurs="0" maxOccurs="unbounded" name="CardDTO" type="tns:CardDTO">
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="CardDTO">
+				<sequence>
+					<element name="PaIdDoc" type="xsd:string">
+					</element>
+					<element name="DocumentType" type="xsd:string">
+					</element>
+					<element name="DocumentNumber" type="xsd:string">
+					</element>
+					<element name="BrandCode" type="xsd:string">
+					</element>
+					<element name="ProductCode" type="xsd:byte">
+					</element>
+					<element name="AfinityGroupCode" type="xsd:short">
+					</element>
+					<element name="CardNumber" type="xsd:string">
+					</element>
+					<element name="DueDate" type="xsd:string">
+					</element>
+					<element name="RenovAutom" type="xsd:string">
+					</element>
+					<element name="TransactionMaskedPan" type="xsd:string">
+					</element>
+					<element name="TransactionBin" type="xsd:string">
+					</element>
+				</sequence>
+			</complexType>
+			<element name="SistarbancMDF2.ABMCUENTATARJETA">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Usuariows" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Passws" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Operationcode" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Externalaccountnumber" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Usuario" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Account" type="tns:AccountDTO" />
+						<element minOccurs="1" maxOccurs="1" name="Trxid" type="xsd:long" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDF2.ABMCUENTATARJETAResponse">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Externalaccountnumber" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Coderror" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Reason" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Empidasignado" type="xsd:int" />
+						<element minOccurs="1" maxOccurs="1" name="Createdcards" type="tns:ArrayOfCardDTO" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDF2.CAMBIOLIMITECREDITO">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Usuariows" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Passws" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Externalaccountnumber" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Creditcurrency" type="xsd:short" />
+						<element minOccurs="1" maxOccurs="1" name="Creditlimit" type="xsd:double" />
+						<element minOccurs="1" maxOccurs="1" name="Cardnumber" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDF2.CAMBIOLIMITECREDITOResponse">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Coderror" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Reason" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDF2.CAMBIOESTADOTARJETA">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Usuariows" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Passws" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Cardnumber" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Externalaccountnumber" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Statustype" type="xsd:int" />
+						<element minOccurs="1" maxOccurs="1" name="Statuscode" type="xsd:byte" />
+						<element minOccurs="1" maxOccurs="1" name="Requestremision" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Embossingname" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Imprimeplastico" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Nuevovencimiento" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDF2.CAMBIOESTADOTARJETAResponse">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Coderror" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Reason" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Newcardnumber" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Transactionmaskedpan" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Transactionbin" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Duedate" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDF2.CAMBIOESTADOCUENTATARJETA">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Usuariows" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Passws" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Externalaccountnumber" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Statustype" type="xsd:int" />
+						<element minOccurs="1" maxOccurs="1" name="Statuscode" type="xsd:byte" />
+						<element minOccurs="1" maxOccurs="1" name="Reasonchange" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="SistarbancMDF2.CAMBIOESTADOCUENTATARJETAResponse">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Coderror" type="xsd:string" />
+						<element minOccurs="1" maxOccurs="1" name="Reason" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+	</types>
+	<message name="SistarbancMDF2.ABMCUENTATARJETASoapIn">
+		<part name="parameters" element="tns:SistarbancMDF2.ABMCUENTATARJETA" />
+	</message>
+	<message name="SistarbancMDF2.ABMCUENTATARJETASoapOut">
+		<part name="parameters" element="tns:SistarbancMDF2.ABMCUENTATARJETAResponse" />
+	</message>
+	<message name="SistarbancMDF2.CAMBIOLIMITECREDITOSoapIn">
+		<part name="parameters" element="tns:SistarbancMDF2.CAMBIOLIMITECREDITO" />
+	</message>
+	<message name="SistarbancMDF2.CAMBIOLIMITECREDITOSoapOut">
+		<part name="parameters" element="tns:SistarbancMDF2.CAMBIOLIMITECREDITOResponse" />
+	</message>
+	<message name="SistarbancMDF2.CAMBIOESTADOTARJETASoapIn">
+		<part name="parameters" element="tns:SistarbancMDF2.CAMBIOESTADOTARJETA" />
+	</message>
+	<message name="SistarbancMDF2.CAMBIOESTADOTARJETASoapOut">
+		<part name="parameters" element="tns:SistarbancMDF2.CAMBIOESTADOTARJETAResponse" />
+	</message>
+	<message name="SistarbancMDF2.CAMBIOESTADOCUENTATARJETASoapIn">
+		<part name="parameters" element="tns:SistarbancMDF2.CAMBIOESTADOCUENTATARJETA" />
+	</message>
+	<message name="SistarbancMDF2.CAMBIOESTADOCUENTATARJETASoapOut">
+		<part name="parameters" element="tns:SistarbancMDF2.CAMBIOESTADOCUENTATARJETAResponse" />
+	</message>
+	<portType name="SistarbancMDF2SoapPort">
+		<operation name="ABMCUENTATARJETA">
+			<input message="wsdlns:SistarbancMDF2.ABMCUENTATARJETASoapIn" />
+			<output message="wsdlns:SistarbancMDF2.ABMCUENTATARJETASoapOut" />
+		</operation>
+		<operation name="CAMBIOLIMITECREDITO">
+			<input message="wsdlns:SistarbancMDF2.CAMBIOLIMITECREDITOSoapIn" />
+			<output message="wsdlns:SistarbancMDF2.CAMBIOLIMITECREDITOSoapOut" />
+		</operation>
+		<operation name="CAMBIOESTADOTARJETA">
+			<input message="wsdlns:SistarbancMDF2.CAMBIOESTADOTARJETASoapIn" />
+			<output message="wsdlns:SistarbancMDF2.CAMBIOESTADOTARJETASoapOut" />
+		</operation>
+		<operation name="CAMBIOESTADOCUENTATARJETA">
+			<input message="wsdlns:SistarbancMDF2.CAMBIOESTADOCUENTATARJETASoapIn" />
+			<output message="wsdlns:SistarbancMDF2.CAMBIOESTADOCUENTATARJETASoapOut" />
+		</operation>
+	</portType>
+	<binding name="SistarbancMDF2SoapBinding" type="wsdlns:SistarbancMDF2SoapPort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<operation name="ABMCUENTATARJETA">
+			<soap:operation soapAction="ConsultasVISAWebaction/ASISTARBANCMDF2.ABMCUENTATARJETA" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="CAMBIOLIMITECREDITO">
+			<soap:operation soapAction="ConsultasVISAWebaction/ASISTARBANCMDF2.CAMBIOLIMITECREDITO" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="CAMBIOESTADOTARJETA">
+			<soap:operation soapAction="ConsultasVISAWebaction/ASISTARBANCMDF2.CAMBIOESTADOTARJETA" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="CAMBIOESTADOCUENTATARJETA">
+			<soap:operation soapAction="ConsultasVISAWebaction/ASISTARBANCMDF2.CAMBIOESTADOCUENTATARJETA" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+	</binding>
+	<service name="SistarbancMDF2">
+		<port name="SistarbancMDF2SoapPort" binding="wsdlns:SistarbancMDF2SoapBinding">
+			<soap:address location="https://172.31.154.10:4445/WSMidineroTest/asistarbancmdf2.aspx" />
+		</port>
+	</service>
+</definitions>

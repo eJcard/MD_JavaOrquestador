@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>uy.com.md</groupId>
+    <artifactId>md-parent</artifactId>
+    <version>1.2.3-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>md-parent</name>
+    <description>Projecto padre que permite manejar las versiones de las dependencias de maven</description>
+
+    <properties>
+        <project.version>1.0.0</project.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <spring.boot.version>2.3.2.RELEASE</spring.boot.version>
+        <model.mapper.version>2.3.8</model.mapper.version>
+        <jackson-annotations.version>2.12.0</jackson-annotations.version>
+        <springdoc-openapi-ui.version>1.6.0</springdoc-openapi-ui.version>
+        <postgresql-driver.version>42.2.14</postgresql-driver.version>
+        <feign-okhttp.version>10.11</feign-okhttp.version>
+        <lombok.version>1.18.12</lombok.version>
+        <hibernate-types.version>2.9.13</hibernate-types.version>
+        <gson.version>2.8.9</gson.version>
+        <maven-jaxb2-plugin.version>0.14.0</maven-jaxb2-plugin.version>
+        <hibernate-core.version>6.0.0.Beta2</hibernate-core.version>
+        <apache.httpcomponents.version>4.5.13</apache.httpcomponents.version>
+        <javax.validation.version>2.0.1.Final</javax.validation.version>
+        <git-commit-id-plugin.version>4.0.5</git-commit-id-plugin.version>
+        <gitflow-maven-plugin.version>1.16.0</gitflow-maven-plugin.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- SPRING BOOT -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>${spring.boot.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-jpa</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
+            <!-- MD MODULES -->
+            <dependency>
+                <groupId>uy.com.md</groupId>
+                <artifactId>md-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>uy.com.md</groupId>
+                <artifactId>md-mensajes</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>uy.com.md</groupId>
+                <artifactId>md-modelo-rcor</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>uy.com.md</groupId>
+                <artifactId>md-modelo-mdw</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- MODEL MAPPER -->
+            <dependency>
+                <groupId>org.modelmapper</groupId>
+                <artifactId>modelmapper</artifactId>
+                <version>${model.mapper.version}</version>
+            </dependency>
+
+            <!-- POSTGRES -->
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgresql-driver.version}</version>
+            </dependency>
+
+            <!-- JACKSON -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson-annotations.version}</version>
+            </dependency>
+
+            <!-- SPRING DOC OPEN API -->
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-ui</artifactId>
+                <version>${springdoc-openapi-ui.version}</version>
+            </dependency>
+
+            <!-- FEIGN OKHTTP -->
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-okhttp</artifactId>
+                <version>${feign-okhttp.version}</version>
+            </dependency>
+
+            <!-- LOMBOK -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- TEST -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
+            <!-- MD LOG-FRAMEWORK -->
+            <dependency>
+                <groupId>net.atos.seguridad</groupId>
+                <artifactId>log-framework</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+
+            <!-- HIBERNATE-TYPES -->
+            <dependency>
+                <groupId>com.vladmihalcea</groupId>
+                <artifactId>hibernate-types-52</artifactId>
+                <version>${hibernate-types.version}</version>
+            </dependency>
+
+            <!-- GSON -->
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.version}</version>
+            </dependency>
+
+            <!-- JAXB2 -->
+            <dependency>
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb2-plugin</artifactId>
+                <version>${maven-jaxb2-plugin.version&gt;}</version>
+            </dependency>
+
+            <!-- HIBERNATE CORE -->
+            <dependency>
+                <groupId>org.hibernate.orm</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>${hibernate-core.version}</version>
+                <scope>compile</scope>
+            </dependency>
+
+            <!-- APACHE HTTPCOMOPONENTS -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${apache.httpcomponents.version}</version>
+            </dependency>
+
+            <!-- JAVAX VALIDATION -->
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>${javax.validation.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <modules>
+        <module>../MD-COMMON</module>
+        <module>../MD-MENSAJES</module>
+        <module>../MD-CONFIG-SERVER</module>
+        <module>../MD-MODELO-RCOR</module>
+        <!--<module>../MD-MICRO-SEGURIDAD</module>        
+        <module>../MD-MICRO-CATALOGO-RCOR</module>-->
+        <module>../MD-MICRO-JCARD</module>
+        <module>../MD-MICRO-GLOBAL</module>
+        <!--<module>../MD-MICRO-CONTRATO</module>
+        <module>../MD-MICRO-PERSONA</module>
+        <module>../MD-MICRO-MOVIMIENTOS</module>
+        <module>../MD-MICRO-BASICOPRESENCIAL</module>
+        <module>../MD-MICRO-BASICODIGITAL</module>
+        <module>../MD-MICRO-PRODUCTO</module>
+        <module>../MD-MICRO-AVANZADODIGITAL</module>-->
+        <module>../MD-MODELO-MDW</module>
+        <module>../MD-MICRO-SISTAR</module>
+    </modules>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring.boot.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.amashchenko.maven.plugin</groupId>
+                    <artifactId>gitflow-maven-plugin</artifactId>
+                    <version>${gitflow-maven-plugin.version}</version>
+                    <configuration>
+                        <gitFlowConfig>
+                            <productionBranch>midinero-dev/master</productionBranch>
+                            <developmentBranch>develop</developmentBranch>
+                            <featureBranchPrefix>feature/</featureBranchPrefix>
+                            <releaseBranchPrefix>release/</releaseBranchPrefix>
+                            <hotfixBranchPrefix>hotfix/</hotfixBranchPrefix>
+                            <supportBranchPrefix>support/</supportBranchPrefix>
+                            <versionTagPrefix />
+                            <origin>origin</origin>
+                        </gitFlowConfig>
+                    </configuration>
+                </plugin>
+				<plugin>
+					<groupId>pl.project13.maven</groupId>
+					<artifactId>git-commit-id-plugin</artifactId>
+					<version>${git-commit-id-plugin.version}</version>
+					<executions>
+						<execution>
+							<id>get-the-git-infos</id>
+							<goals>
+								<goal>revision</goal>
+							</goals>
+							<phase>initialize</phase>
+						</execution>
+						<execution>
+							<id>validate-the-git-infos</id>
+							<goals>
+								<goal>validateRevision</goal>
+							</goals>
+							<phase>package</phase>
+						</execution>
+					</executions>
+					<configuration>
+                        <dotGitDirectory>${project.basedir}/../.git</dotGitDirectory>
+                        <verbose>true</verbose>
+                        <generateGitPropertiesFile>true</generateGitPropertiesFile>
+                        <generateGitPropertiesFilename>${project.build.directory}/git.properties</generateGitPropertiesFilename>
+                        <format>properties</format>
+                        <includeOnlyProperties>
+                            <includeOnlyProperty>^git.build.(time|version)$</includeOnlyProperty>
+                            <includeOnlyProperty>^git.commit.id.(abbrev|full)$</includeOnlyProperty>
+                        </includeOnlyProperties>
+                        <useNativeGit>true</useNativeGit>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
